@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 450" width="100%" height="100%">
+  <defs>
+    <!-- Brand Gradients based on authentic school crest -->
+    <linearGradient id="limeBorderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C2DC38" />
+      <stop offset="50%" stop-color="#A5C730" />
+      <stop offset="100%" stop-color="#8EA824" />
+    </linearGradient>
+
+    <linearGradient id="shieldNavyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#24457A" />
+      <stop offset="45%" stop-color="#1A3460" />
+      <stop offset="100%" stop-color="#0E203E" />
+    </linearGradient>
+
+    <linearGradient id="ribbonNavyGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#132746" />
+      <stop offset="50%" stop-color="#1D3A68" />
+      <stop offset="100%" stop-color="#132746" />
+    </linearGradient>
+
+    <filter id="crestShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#07101E" flood-opacity="0.3" />
+    </filter>
+
+    <filter id="textGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#050C16" flood-opacity="0.8" />
+    </filter>
+  </defs>
+
+  <g filter="url(#crestShadow)">
+    <!-- 1. OUTER LIME SHIELD -->
+    <!-- Pointed Tudor/ogival heraldic shield with top central crest, decorative dip horns and flared side spurs -->
+    <path d="M 250 24 
+             C 272 56, 305 66, 345 52 
+             C 340 76, 350 94, 385 106 
+             C 362 144, 360 178, 375 220 
+             C 366 268, 320 326, 250 376 
+             C 180 326, 134 268, 125 220 
+             C 140 178, 138 144, 115 106 
+             C 150 94, 160 76, 155 52 
+             C 195 66, 228 56, 250 24 Z" 
+          fill="url(#limeBorderGrad)" 
+          stroke="#7A941C" 
+          stroke-width="2.5" 
+          stroke-linejoin="round" />
+
+    <!-- 2. INNER NAVY SHIELD -->
+    <path d="M 250 48 
+             C 268 76, 296 84, 330 72 
+             C 326 92, 334 108, 362 118 
+             C 344 150, 342 178, 354 214 
+             C 346 254, 308 304, 250 348 
+             C 192 304, 154 254, 146 214 
+             C 158 178, 156 150, 138 118 
+             C 166 108, 174 92, 170 72 
+             C 204 84, 232 76, 250 48 Z" 
+          fill="url(#shieldNavyGrad)" 
+          stroke="url(#limeBorderGrad)" 
+          stroke-width="5" 
+          stroke-linejoin="round" />
+
+    <!-- Subtle inner shield accent line -->
+    <path d="M 250 64 
+             C 265 86, 288 92, 318 84 
+             C 314 100, 320 114, 342 122 
+             C 328 150, 326 172, 336 204 
+             C 330 238, 298 282, 250 322 
+             C 202 282, 170 238, 164 204 
+             C 174 172, 172 150, 158 122 
+             C 180 114, 186 100, 182 84 
+             C 212 92, 235 86, 250 64 Z" 
+          fill="none" 
+          stroke="rgba(194, 220, 56, 0.45)" 
+          stroke-width="1.8" />
+
+    <!-- 3. SHIELD TYPOGRAPHY -->
+    <text x="250" y="146" 
+          text-anchor="middle" 
+          fill="#FFFFFF" 
+          font-family="Georgia, 'Times New Roman', serif" 
+          font-weight="bold" 
+          font-size="28" 
+          letter-spacing="0.8" 
+          filter="url(#textGlow)">British</text>
+
+    <text x="250" y="184" 
+          text-anchor="middle" 
+          fill="#FFFFFF" 
+          font-family="Georgia, 'Times New Roman', serif" 
+          font-weight="bold" 
+          font-size="24" 
+          letter-spacing="0.5" 
+          filter="url(#textGlow)">International</text>
+
+    <text x="250" y="218" 
+          text-anchor="middle" 
+          fill="#FFFFFF" 
+          font-family="Georgia, 'Times New Roman', serif" 
+          font-weight="bold" 
+          font-size="26" 
+          letter-spacing="0.8" 
+          filter="url(#textGlow)">School</text>
+
+    <!-- 4. TRIPARTITE MOTTO BANNER RIBBON -->
+    <!-- Lower ornamental ribbon with 3 sections: STRIVE | BELIEVE | ACHIEVE -->
+
+    <!-- Ribbon background folds (underneath) -->
+    <path d="M 140 300 L 152 278 L 176 290 Z" fill="#0A182E" stroke="#8EA824" stroke-width="1.5" />
+    <path d="M 360 300 L 348 278 L 324 290 Z" fill="#0A182E" stroke="#8EA824" stroke-width="1.5" />
+
+    <!-- Main Ribbon Left Wing (STRIVE) -->
+    <path d="M 12 284 
+             C 52 272, 110 274, 160 295 
+             L 154 330 
+             C 106 312, 54 310, 24 326 
+             L 38 305 Z" 
+          fill="url(#ribbonNavyGrad)" 
+          stroke="url(#limeBorderGrad)" 
+          stroke-width="3.5" 
+          stroke-linejoin="round" />
+
+    <!-- Ribbon Left Swallowtail cut -->
+    <polygon points="12,284 38,305 24,326 2,305" fill="#0B1B33" stroke="url(#limeBorderGrad)" stroke-width="2" />
+
+    <!-- Main Ribbon Right Wing (ACHIEVE) -->
+    <path d="M 488 284 
+             C 448 272, 390 274, 340 295 
+             L 346 330 
+             C 394 312, 446 310, 476 326 
+             L 462 305 Z" 
+          fill="url(#ribbonNavyGrad)" 
+          stroke="url(#limeBorderGrad)" 
+          stroke-width="3.5" 
+          stroke-linejoin="round" />
+
+    <!-- Ribbon Right Swallowtail cut -->
+    <polygon points="488,284 462,305 476,326 498,305" fill="#0B1B33" stroke="url(#limeBorderGrad)" stroke-width="2" />
+
+    <!-- Center Ribbon (BELIEVE) -->
+    <path d="M 146 292 
+             C 210 324, 290 324, 354 292 
+             L 358 328 
+             C 292 360, 208 360, 142 328 Z" 
+          fill="url(#ribbonNavyGrad)" 
+          stroke="url(#limeBorderGrad)" 
+          stroke-width="4" 
+          stroke-linejoin="round" />
+
+    <!-- Ribbon Motto Typography -->
+    <!-- STRIVE on left ribbon wing -->
+    <text x="88" y="306" 
+          transform="rotate(-8, 88, 306)" 
+          text-anchor="middle" 
+          fill="#FFFFFF" 
+          font-family="Georgia, 'Times New Roman', serif" 
+          font-weight="bold" 
+          font-size="16" 
+          letter-spacing="2.5" 
+          filter="url(#textGlow)">STRIVE</text>
+
+    <!-- BELIEVE on center ribbon -->
+    <text x="250" y="337" 
+          text-anchor="middle" 
+          fill="#FFFFFF" 
+          font-family="Georgia, 'Times New Roman', serif" 
+          font-weight="bold" 
+          font-size="18" 
+          letter-spacing="3" 
+          filter="url(#textGlow)">BELIEVE</text>
+
+    <!-- ACHIEVE on right ribbon wing -->
+    <text x="412" y="306" 
+          transform="rotate(8, 412, 306)" 
+          text-anchor="middle" 
+          fill="#FFFFFF" 
+          font-family="Georgia, 'Times New Roman', serif" 
+          font-weight="bold" 
+          font-size="16" 
+          letter-spacing="2.5" 
+          filter="url(#textGlow)">ACHIEVE</text>
+
+    <!-- Small decorative ribbon curls / flourishes -->
+    <path d="M 142 328 C 146 342, 160 348, 172 342" fill="none" stroke="url(#limeBorderGrad)" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M 358 328 C 354 342, 340 348, 328 342" fill="none" stroke="url(#limeBorderGrad)" stroke-width="2.5" stroke-linecap="round" />
+  </g>
+</svg>
