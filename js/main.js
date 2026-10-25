@@ -187,6 +187,23 @@ function initMobileNavigation() {
   if (!toggleBtn || !drawer) return;
 
   function openDrawer() {
+    const activeLang = localStorage.getItem('bisjapan_lang') || document.documentElement.getAttribute('lang') || 'ja';
+    
+    // Ensure active state of language buttons in drawer reflects activeLang
+    drawer.querySelectorAll('.lang-btn').forEach(btn => {
+      const bLang = btn.getAttribute('data-lang');
+      if (bLang === activeLang) {
+        btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
+      } else {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-pressed', 'false');
+      }
+    });
+
+    // Ensure all drawer link hrefs carry activeLang
+    updateInternalLinks(activeLang);
+
     drawer.style.display = 'block';
     setTimeout(() => {
       drawer.classList.add('active');
@@ -214,8 +231,53 @@ function initMobileNavigation() {
     }
   });
 
+  // Handle drawer navigation links: preserve language parameter on mobile navigation
   drawerLinks.forEach(link => {
-    link.addEventListener('click', closeDrawer);
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (!href) return;
+
+      // Telephone or external links: close drawer and let default browser action proceed
+      if (href.startsWith('tel:') || href.startsWith('mailto:') || href.startsWith('http://') || href.startsWith('https://')) {
+        closeDrawer();
+        return;
+      }
+
+      const activeLang = localStorage.getItem('bisjapan_lang') || document.documentElement.getAttribute('lang') || 'ja';
+
+      // In-page hash on current page (e.g. #booking)
+      if (href.startsWith('#')) {
+        closeDrawer();
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+        return;
+      }
+
+      // Check if it's the current page with a hash (e.g. index.html#teachers while on index.html)
+      const parts = href.split('#');
+      const targetPath = parts[0].split('?')[0];
+      const targetHash = parts[1] ? '#' + parts[1] : '';
+      const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+
+      if ((targetPath === currentPath || (currentPath === '' && targetPath === 'index.html')) && targetHash) {
+        closeDrawer();
+        const target = document.querySelector(targetHash);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+        return;
+      }
+
+      // Navigation to another page: explicitly navigate to target with ?lang=...
+      e.preventDefault();
+      closeDrawer();
+      const finalUrl = `${targetPath}?lang=${activeLang}${targetHash}`;
+      window.location.href = finalUrl;
+    });
   });
 
   // Close on Escape key
