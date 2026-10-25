@@ -15,22 +15,76 @@ document.addEventListener('DOMContentLoaded', () => {
 /**
  * 1. BILINGUAL LANGUAGE SWITCHER (JA / EN)
  * Dynamically toggles all text elements marked with data-ja and data-en
+ * Persists language via both localStorage and URL parameters across page transitions
  */
+function getInitialLanguage() {
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlLang = urlParams.get('lang');
+    if (urlLang === 'en' || urlLang === 'ja') {
+      localStorage.setItem('bisjapan_lang', urlLang);
+      return urlLang;
+    }
+    if (window.__INITIAL_LANG__ === 'en' || window.__INITIAL_LANG__ === 'ja') {
+      return window.__INITIAL_LANG__;
+    }
+    const stored = localStorage.getItem('bisjapan_lang');
+    if (stored === 'en' || stored === 'ja') {
+      return stored;
+    }
+  } catch (e) {
+    console.warn('Storage or URL parsing error:', e);
+  }
+  return 'ja';
+}
+
 function initLanguageSwitcher() {
-  const currentLang = localStorage.getItem('bisjapan_lang') || 'ja';
+  const currentLang = getInitialLanguage();
   setLanguage(currentLang);
 
-  const langButtons = document.querySelectorAll('.lang-btn');
-  langButtons.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const selected = e.currentTarget.getAttribute('data-lang');
-      setLanguage(selected);
-    });
+  // Delegated click handler for all language toggle buttons across header, utility bar, and drawer
+  document.addEventListener('click', (e) => {
+    const langBtn = e.target.closest('.lang-btn');
+    if (langBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      const selected = langBtn.getAttribute('data-lang');
+      if (selected) {
+        setLanguage(selected);
+      }
+    }
   });
+
+  // Capture clicks on all internal links to guarantee the selected language travels with navigation
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href]');
+    if (!link) return;
+    const href = link.getAttribute('href');
+    if (!href) return;
+    if (href.startsWith('http://') || href.startsWith('https://') || 
+        href.startsWith('tel:') || href.startsWith('mailto:') || 
+        href.startsWith('javascript:') || href.startsWith('#')) {
+      return;
+    }
+    const activeLang = localStorage.getItem('bisjapan_lang') || 'ja';
+    try {
+      const parts = href.split('#');
+      const [path, query] = parts[0].split('?');
+      const hash = parts[1] ? '#' + parts[1] : '';
+      const params = new URLSearchParams(query || '');
+      params.set('lang', activeLang);
+      link.setAttribute('href', `${path}?${params.toString()}${hash}`);
+    } catch (err) {}
+  }, { capture: true });
 }
 
 function setLanguage(lang) {
-  localStorage.setItem('bisjapan_lang', lang);
+  try {
+    localStorage.setItem('bisjapan_lang', lang);
+  } catch (e) {
+    console.warn('Could not save to localStorage:', e);
+  }
+
   document.documentElement.setAttribute('lang', lang);
 
   // Update button active state
@@ -54,6 +108,69 @@ function setLanguage(lang) {
       } else {
         el.innerHTML = text;
       }
+    }
+    const phText = el.getAttribute(`data-placeholder-${lang}`);
+    if (phText) {
+      el.setAttribute('placeholder', phText);
+    }
+  });
+
+  // Also update any elements that only have data-placeholder-ja / data-placeholder-en
+  document.querySelectorAll('[data-placeholder-ja]').forEach(el => {
+    const ph = el.getAttribute(`data-placeholder-${lang}`);
+    if (ph) {
+      el.setAttribute('placeholder', ph);
+    }
+  });
+
+  // Update document title if present
+  const docTitleEl = document.querySelector('title[data-ja]');
+  if (docTitleEl) {
+    const titleText = docTitleEl.getAttribute(`data-${lang}`);
+    if (titleText) document.title = titleText;
+  }
+
+  // Update URL search parameter smoothly without reload
+  if (window.history && window.history.replaceState) {
+    try {
+      const currentUrl = new URL(window.location.href);
+      if (currentUrl.searchParams.get('lang') !== lang) {
+        currentUrl.searchParams.set('lang', lang);
+        window.history.replaceState({}, '', currentUrl.toString());
+      }
+    } catch (e) {
+      // Ignore in non-standard URL environments
+    }
+  }
+
+  // Update all internal navigation links so clicking any menu link preserves ?lang=...
+  updateInternalLinks(lang);
+}
+
+function updateInternalLinks(lang) {
+  const links = document.querySelectorAll('a[href]');
+  links.forEach(link => {
+    const href = link.getAttribute('href');
+    if (!href) return;
+    // Skip external URLs, protocol links, or bare in-page hash anchors
+    if (href.startsWith('http://') || href.startsWith('https://') || 
+        href.startsWith('tel:') || href.startsWith('mailto:') || 
+        href.startsWith('javascript:') || href.startsWith('#')) {
+      return;
+    }
+
+    try {
+      const parts = href.split('#');
+      const pathAndQuery = parts[0];
+      const hash = parts[1] ? '#' + parts[1] : '';
+
+      const [path, query] = pathAndQuery.split('?');
+      const params = new URLSearchParams(query || '');
+      params.set('lang', lang);
+
+      link.setAttribute('href', `${path}?${params.toString()}${hash}`);
+    } catch (e) {
+      // Fallback
     }
   });
 }
