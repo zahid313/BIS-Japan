@@ -104,8 +104,8 @@
   <!-- =========================================================================
        3. MOBILE DRAWER MENU
        ========================================================================= -->
-  <div id="mobileDrawer" style="display: none; position: fixed; inset: 0; z-index: 10000; background: rgba(0,0,0,0.6);" aria-hidden="true">
-    <div style="position: absolute; right: 0; top: 0; bottom: 0; width: 85%; max-width: 340px; background: #FFFFFF; padding: 24px; display: flex; flex-direction: column; gap: 20px; overflow-y: auto;">
+  <div id="mobileDrawer" aria-hidden="true">
+    <div class="mobile-drawer-inner">
       <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E7E5E4; padding-bottom: 16px;">
         <span style="font-weight: 700; color: #1B365D;">MENU</span>
         <button id="mobileDrawerClose" style="font-size: 24px; padding: 8px;">✕</button>
@@ -597,7 +597,7 @@
                 お子様の学年と自治体の助成対象を選択すると、毎月の実質負担額が即座に計算されます。
               </p>
 
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
+              <div class="form-row-2col" style="margin-bottom: 20px;">
                 <div>
                   <label for="calcAgeSelect" style="display: block; font-size: 13px; font-weight: 700; margin-bottom: 6px;" data-ja="お子様の学年" data-en="Age Group">お子様の学年</label>
                   <select id="calcAgeSelect" class="form-control">
@@ -1216,7 +1216,7 @@
                 <input type="text" id="parentName" class="form-control" placeholder="例: 海老名 花子" required>
               </div>
 
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div class="form-row-2col">
                 <div class="form-group">
                   <label for="phone" class="form-label">
                     <span data-ja="お電話番号" data-en="Phone Number">お電話番号</span>
@@ -1354,8 +1354,8 @@
         <span style="font-size: 16px;">💬</span>
         <span data-ja="LINE相談" data-en="LINE">LINE相談</span>
       </a>
-      <a href="#booking" class="sticky-action-btn sticky-trial-btn" data-ja="無料体験予約" data-en="Book Trial">
-        無料体験予約 📅
+      <a href="#booking" class="sticky-action-btn sticky-trial-btn" data-ja="体験予約 📅" data-en="Book Trial 📅">
+        体験予約 📅
       </a>
     </div>
   </aside>

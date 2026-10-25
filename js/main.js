@@ -70,19 +70,32 @@ function initMobileNavigation() {
   if (!toggleBtn || !drawer) return;
 
   function openDrawer() {
-    drawer.classList.add('active');
+    drawer.style.display = 'block';
+    setTimeout(() => {
+      drawer.classList.add('active');
+    }, 10);
     document.body.style.overflow = 'hidden';
     toggleBtn.setAttribute('aria-expanded', 'true');
   }
 
   function closeDrawer() {
     drawer.classList.remove('active');
+    setTimeout(() => {
+      drawer.style.display = 'none';
+    }, 200);
     document.body.style.overflow = '';
     toggleBtn.setAttribute('aria-expanded', 'false');
   }
 
   toggleBtn.addEventListener('click', openDrawer);
   if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+
+  // Close when clicking the dark backdrop outside content
+  drawer.addEventListener('click', (e) => {
+    if (e.target === drawer) {
+      closeDrawer();
+    }
+  });
 
   drawerLinks.forEach(link => {
     link.addEventListener('click', closeDrawer);

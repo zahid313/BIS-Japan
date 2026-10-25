@@ -68,10 +68,49 @@
             <span>English</span>
           </button>
         </div>
-        <a href="contact.html" class="btn btn-primary" data-ja="無料体験レッスン予約" data-en="Book a Free Trial">無料体験レッスン予約</a>
+        <a href="contact.html" class="btn btn-primary header-cta-desktop" data-ja="無料体験レッスン予約" data-en="Book a Free Trial">無料体験レッスン予約</a>
+        <button id="mobileMenuToggle" class="mobile-menu-btn" aria-label="メニューを開く" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
       </div>
     </div>
   </header>
+
+  <!-- MOBILE DRAWER MENU -->
+  <div id="mobileDrawer" aria-hidden="true">
+    <div class="mobile-drawer-inner">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E7E5E4; padding-bottom: 16px;">
+        <span style="font-weight: 700; color: #1B365D;">MENU</span>
+        <button id="mobileDrawerClose" style="font-size: 24px; padding: 8px;">✕</button>
+      </div>
+      <div class="lang-switch-drawer" style="align-self: flex-start;" role="group" aria-label="言語切り替え / Language Switcher">
+        <button class="lang-btn lang-btn-ja active" data-lang="ja">
+          <span class="flag-icon">🇯🇵</span>
+          <span>日本語</span>
+        </button>
+        <button class="lang-btn lang-btn-en" data-lang="en">
+          <span class="flag-icon">🇬🇧</span>
+          <span>English</span>
+        </button>
+      </div>
+      <nav style="display: flex; flex-direction: column; gap: 16px;">
+        <a href="about.html" class="drawer-nav-link" style="font-size: 16px; font-weight: 600; color: #1C1917;" data-ja="当校について" data-en="About Us">当校について</a>
+        <a href="curriculum.html" class="drawer-nav-link active" style="font-size: 16px; font-weight: 700; color: #1B365D;" data-ja="カリキュラム（ケンブリッジ＆国語）" data-en="Curriculum (Cambridge & Kokugo)">カリキュラム（ケンブリッジ＆国語）</a>
+        <a href="admissions.html" class="drawer-nav-link" style="font-size: 16px; font-weight: 600; color: #1C1917;" data-ja="学年・授業料（幼保無償化）" data-en="Ages & Tuition (Gov Subsidy)">学年・授業料（幼保無償化）</a>
+        <a href="index.html#teachers" class="drawer-nav-link" style="font-size: 16px; font-weight: 600; color: #1C1917;" data-ja="講師・スタッフ紹介" data-en="Teachers & Staff">講師・スタッフ紹介</a>
+        <a href="access.html" class="drawer-nav-link" style="font-size: 16px; font-weight: 600; color: #1C1917;" data-ja="アクセス・送迎バス路線" data-en="Access & School Bus">アクセス・送迎バス路線</a>
+        <a href="contact.html" class="drawer-nav-link" style="font-size: 16px; font-weight: 600; color: #1C1917;" data-ja="お問い合わせ・無料体験予約" data-en="Contact & Tour">お問い合わせ・無料体験予約</a>
+      </nav>
+      <div style="margin-top: auto; display: flex; flex-direction: column; gap: 12px;">
+        <a href="contact.html" class="btn btn-primary btn-lg drawer-nav-link" data-ja="無料体験レッスン予約" data-en="Book a Free Trial">無料体験レッスン予約</a>
+        <a href="tel:046-259-9108" class="btn btn-secondary drawer-nav-link">📞 046-259-9108 に電話</a>
+      </div>
+    </div>
+  </div>
 
   <main id="mainContent">
     <!-- Banner -->
@@ -102,7 +141,7 @@
           <p style="font-size: 15px; color: #44403C; line-height: 1.8; margin-bottom: 20px;">
             英国初等教育の標準であるシンセティック・フォニックス（Synthetic Phonics）を導入。文字と音の規則性を遊びや歌を通じて体感し、暗記に頼らず初めて見る英単語でも自力で読める力を育みます。小学部では読解力・エッセイライティング・ディベートスキルへと発展させます。
           </p>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px;">
+          <div class="curriculum-detail-grid">
             <div style="border-radius: 12px; overflow: hidden; border: 1px solid #E2E8F0;">
               <img src="images/preprimary-lkg.jpg" alt="幼児部フォニックス・描画指導" style="width: 100%; height: 160px; object-fit: cover; display: block;" loading="lazy">
               <div style="padding: 10px; font-size: 12px; color: #64748B; background: #FAFAF9;">遊びとフォニックスで自然に英語の音を定着</div>
@@ -126,7 +165,7 @@
           <p style="font-size: 15px; color: #44403C; line-height: 1.8; margin-bottom: 20px;">
             日本の公立小学校で採用されている文部科学省検定済みの国語教科書を使用。日本の教員免許を持つ日本人専任教員が毎日指導します。ひらがな・カタカナ・学年配当漢字の習得はもちろん、音読・詩・作文を通じて情緒豊かな母国語の表現力を培います。日本の小学校や私立中学校への進学にも万全です。
           </p>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px;">
+          <div class="curriculum-detail-grid">
             <div style="border-radius: 12px; overflow: hidden; border: 1px solid #E2E8F0;">
               <img src="images/event-japanese-culture.png" alt="浴衣・甚平での日本伝統文化・劇発表会" style="width: 100%; height: 160px; object-fit: cover; display: block;" loading="lazy">
               <div style="padding: 10px; font-size: 12px; color: #64748B; background: #FAFAF9;">浴衣を着た伝統文化劇など母国語の情緒も育成</div>
@@ -222,7 +261,7 @@
 
         <!-- CTA Box -->
         <div style="text-align: center; margin-top: 50px;">
-          <a href="contact.html" class="btn btn-primary btn-lg">実際の授業をご見学！無料体験レッスンを予約する →</a>
+          <a href="contact.html" class="btn btn-primary btn-lg" data-ja="実際の授業をご見学！無料体験レッスンを予約する →" data-en="Visit a Real Class! Book Free Trial →">実際の授業をご見学！無料体験レッスンを予約する →</a>
         </div>
       </div>
     </section>
@@ -233,6 +272,23 @@
       <p>© 2007-2026 British International School, Japan. 〒243-0417 神奈川県海老名市本郷4786 TEL: 046-259-9108</p>
     </div>
   </footer>
+
+  <!-- MOBILE STICKY BOTTOM BAR -->
+  <aside class="mobile-sticky-bar" aria-label="モバイル固定アクションバー">
+    <div class="mobile-sticky-grid">
+      <a href="tel:046-259-9108" class="sticky-action-btn sticky-call-btn">
+        <span style="font-size: 16px;">📞</span>
+        <span data-ja="電話" data-en="Call">電話</span>
+      </a>
+      <a href="https://line.me" target="_blank" rel="noopener noreferrer" class="sticky-action-btn sticky-line-btn">
+        <span style="font-size: 16px;">💬</span>
+        <span data-ja="LINE相談" data-en="LINE">LINE相談</span>
+      </a>
+      <a href="contact.html" class="sticky-action-btn sticky-trial-btn" data-ja="体験予約 📅" data-en="Book Trial 📅">
+        体験予約 📅
+      </a>
+    </div>
+  </aside>
 
   <script src="js/main.js"></script>
 </body>
