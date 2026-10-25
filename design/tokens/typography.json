@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json.schemastore.org/design-tokens.json",
+  "name": "BIS Japan Typography Tokens",
+  "version": "1.0.0",
+  "description": "Bilingual typography design tokens optimized for native Japanese readability paired with modern British academic English.",
+  "fontFamilies": {
+    "japanese": {
+      "primary": {
+        "value": "\"Noto Sans JP\", \"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", sans-serif",
+        "description": "Standard Japanese UI and prose font with balanced kana proportions and clear kanji legibility."
+      },
+      "display": {
+        "value": "\"Zen Kaku Gothic New\", \"Noto Sans JP\", sans-serif",
+        "description": "Modern Japanese heading font with refined optical metrics."
+      }
+    },
+    "english": {
+      "primary": {
+        "value": "\"Plus Jakarta Sans\", \"Inter\", -apple-system, BlinkMacSystemFont, sans-serif",
+        "description": "Modern humanist geometric sans-serif that feels crisp, friendly, and highly legible."
+      },
+      "serif": {
+        "value": "\"Cinzel\", \"Playfair Display\", \"Georgia\", serif",
+        "description": "Prestigious British academic display font for badge crests, school motto, and formal headers."
+      }
+    },
+    "mono": {
+      "value": "\"JetBrains Mono\", \"Fira Code\", monospace",
+      "description": "Tabular code and numeric font."
+    }
+  },
+  "fontWeights": {
+    "regular": 400,
+    "medium": 500,
+    "semibold": 600,
+    "bold": 700,
+    "extrabold": 800
+  },
+  "typeScale": {
+    "display": {
+      "fontSize": { "desktop": "48px", "tablet": "38px", "mobile": "32px" },
+      "lineHeight": { "desktop": "1.2", "mobile": "1.25" },
+      "letterSpacing": "-0.02em",
+      "fontWeight": 700,
+      "textWrap": "balance",
+      "description": "Hero banners and main impact titles"
+    },
+    "h1": {
+      "fontSize": { "desktop": "36px", "tablet": "30px", "mobile": "26px" },
+      "lineHeight": { "desktop": "1.3", "mobile": "1.35" },
+      "letterSpacing": "-0.015em",
+      "fontWeight": 700,
+      "textWrap": "balance",
+      "description": "Page-level titles and section main headers"
+    },
+    "h2": {
+      "fontSize": { "desktop": "28px", "tablet": "24px", "mobile": "22px" },
+      "lineHeight": { "desktop": "1.35", "mobile": "1.4" },
+      "letterSpacing": "-0.01em",
+      "fontWeight": 700,
+      "textWrap": "balance",
+      "description": "Feature and card block headers"
+    },
+    "h3": {
+      "fontSize": { "desktop": "22px", "tablet": "20px", "mobile": "18px" },
+      "lineHeight": { "desktop": "1.4", "mobile": "1.45" },
+      "letterSpacing": "0em",
+      "fontWeight": 600,
+      "textWrap": "balance",
+      "description": "Sub-sections and modal titles"
+    },
+    "h4": {
+      "fontSize": { "desktop": "18px", "mobile": "16px" },
+      "lineHeight": "1.5",
+      "letterSpacing": "0.01em",
+      "fontWeight": 600,
+      "description": "Card labels and navigation groups"
+    },
+    "bodyLarge": {
+      "fontSize": { "desktop": "18px", "mobile": "16px" },
+      "lineHeight": { "desktop": "1.8", "mobile": "1.75" },
+      "letterSpacing": "0.02em",
+      "fontWeight": 400,
+      "textWrap": "pretty",
+      "description": "Lead paragraphs and highlight text"
+    },
+    "body": {
+      "fontSize": { "desktop": "16px", "mobile": "15px" },
+      "lineHeight": { "desktop": "1.8", "mobile": "1.75" },
+      "letterSpacing": "0.025em",
+      "fontWeight": 400,
+      "textWrap": "pretty",
+      "description": "Standard Japanese prose and curriculum explanations"
+    },
+    "bodySmall": {
+      "fontSize": { "desktop": "14px", "mobile": "13px" },
+      "lineHeight": "1.6",
+      "letterSpacing": "0.02em",
+      "fontWeight": 400,
+      "description": "Secondary copy, footnotes, and metadata"
+    },
+    "caption": {
+      "fontSize": "12px",
+      "lineHeight": "1.5",
+      "letterSpacing": "0.03em",
+      "fontWeight": 500,
+      "description": "Badges, tag pills, and fine print"
+    },
+    "numericCurrency": {
+      "fontSize": "inherit",
+      "fontVariantNumeric": "tabular-nums",
+      "fontWeight": 700,
+      "letterSpacing": "-0.02em",
+      "description": "Tuition fees, dates, and tabular numbers"
+    }
+  },
+  "rules": {
+    "fontSmoothing": {
+      "-webkit-font-smoothing": "antialiased",
+      "-moz-osx-font-smoothing": "grayscale"
+    },
+    "japaneseTextRules": {
+      "wordBreak": "keep-all",
+      "overflowWrap": "break-word",
+      "lineBreak": "strict"
+    }
+  }
+}
