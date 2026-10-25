@@ -571,33 +571,32 @@ p {
 .logo-text-group {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   white-space: nowrap;
 }
 
 .logo-title {
   font-family: var(--font-english);
-  font-size: 17px;
+  font-size: 19px;
   font-weight: 800;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.02em;
   color: var(--color-navy-900);
-  line-height: 1.1;
+  line-height: 1.15;
 }
 
 .logo-subtitle {
-  font-size: 11px;
-  color: var(--color-slate-600);
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  display: none;
 }
 
 .logo-motto {
   font-family: var(--font-english);
   font-size: 9px;
   font-weight: 800;
-  letter-spacing: 0.10em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-crest-lime-700);
   line-height: 1.2;
+  margin-top: 2px;
 }
 
 .placeholder-badge {
