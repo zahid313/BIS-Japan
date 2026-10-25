@@ -23,9 +23,15 @@
         <a href="tel:046-259-9108" class="tabular-nums" style="color: #FCD34D;">📞 046-259-9108</a>
       </div>
       <div class="utility-right">
-        <div class="lang-switch">
-          <button class="lang-btn active" data-lang="ja">日本語</button>
-          <button class="lang-btn" data-lang="en">English</button>
+        <div class="lang-switch" role="group" aria-label="言語切り替え / Language Switcher">
+          <button class="lang-btn lang-btn-ja active" data-lang="ja" aria-pressed="true">
+            <span class="flag-icon">🇯🇵</span>
+            <span>日本語</span>
+          </button>
+          <button class="lang-btn lang-btn-en" data-lang="en" aria-pressed="false">
+            <span class="flag-icon">🇬🇧</span>
+            <span>English</span>
+          </button>
         </div>
       </div>
     </div>
@@ -52,6 +58,16 @@
         </ul>
       </nav>
       <div class="header-actions">
+        <div class="lang-switch header-cta-desktop" role="group" aria-label="言語切り替え / Language Switcher">
+          <button class="lang-btn lang-btn-ja active" data-lang="ja" aria-pressed="true">
+            <span class="flag-icon">🇯🇵</span>
+            <span>日本語</span>
+          </button>
+          <button class="lang-btn lang-btn-en" data-lang="en" aria-pressed="false">
+            <span class="flag-icon">🇬🇧</span>
+            <span>English</span>
+          </button>
+        </div>
         <a href="contact.html" class="btn btn-primary" data-ja="無料体験レッスン予約" data-en="Book a Free Trial">無料体験レッスン予約</a>
       </div>
     </div>
@@ -257,6 +273,31 @@
             <p style="font-size: 13px; color: #78716C; line-height: 1.6;">
               ※上記期間外でも、定員に空き枠がある場合は随時途中入園・編入学が可能です（選考テストおよび親子面談を実施いたします）。詳しくはお気軽にお問い合わせください。
             </p>
+          </div>
+
+          <!-- School Life, Lunch & Annual Events Notice -->
+          <div style="background: #FFFFFF; border-radius: 16px; border: 1px solid #E7E5E4; padding: 28px; margin-top: 24px; box-shadow: var(--shadow-sm);">
+            <h3 style="font-size: 18px; color: #1B365D; margin-bottom: 16px;" data-ja="🍱 昼食・学校行事に関するご案内" data-en="🍱 Lunch Policy & Annual Events Notice">🍱 昼食・学校行事に関するご案内</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
+              <div style="background: #FAFAF9; padding: 16px; border-radius: 12px; border-left: 4px solid #DC2626;">
+                <h4 style="font-size: 14px; color: #991B1B; margin-bottom: 6px;" data-ja="🍱 昼食（お弁当持参・給食なし）" data-en="🍱 Lunch (Home Bento - No Catering)">🍱 昼食（お弁当持参・給食なし）</h4>
+                <p style="font-size: 13px; color: #57534E; line-height: 1.7; margin: 0;" data-ja="当校では給食の提供はございません。生徒の皆さまには、毎日ご家庭からのお弁当（Packed Lunch）と水筒をご持参いただいております。食物アレルギーにも安全に対応できます。" data-en="The school does not offer catering; students bring their own home-packed lunch (Bento) and water bottle every day. Ensures safety for allergies and food preferences.">
+                  当校では給食の提供はございません。生徒の皆さまには、毎日ご家庭からのお弁当（Packed Lunch）と水筒をご持参いただいております。食物アレルギーにも安全に対応できます。
+                </p>
+              </div>
+              <div style="background: #FAFAF9; padding: 16px; border-radius: 12px; border-left: 4px solid #1B365D;">
+                <h4 style="font-size: 14px; color: #1B365D; margin-bottom: 6px;" data-ja="🚌 年1回 スクールトリップ（校外学習）" data-en="🚌 Annual Trips (Overnight & Day)">🚌 年1回 スクールトリップ（校外学習）</h4>
+                <p style="font-size: 13px; color: #57534E; line-height: 1.7; margin: 0;" data-ja="【Grade 4以上】年1回・2泊3日の宿泊体験学習（自然体験・探究プロジェクト）。&lt;br&gt;【Grade 3以下・幼児部】年1回・日帰り遠足（動物園・体験施設）。" data-en="[Grade 4+]: Annual 3-day overnight study tour &amp; camp.&lt;br&gt;[Below Grade 4 &amp; Early Years]: Annual 1-day outdoor excursion (nature parks / safari).">
+                  【Grade 4以上】年1回・2泊3日の宿泊体験学習（自然体験・探究プロジェクト）。<br>【Grade 3以下・幼児部】年1回・日帰り遠足（動物園・体験施設）。
+                </p>
+              </div>
+              <div style="background: #FAFAF9; padding: 16px; border-radius: 12px; border-left: 4px solid #D97706;">
+                <h4 style="font-size: 14px; color: #B45309; margin-bottom: 6px;" data-ja="🏃 年1回 全校運動会（スポーツミート）" data-en="🏃 Annual Sports Meet">🏃 年1回 全校運動会（スポーツミート）</h4>
+                <p style="font-size: 13px; color: #57534E; line-height: 1.7; margin: 0;" data-ja="年に1回、本格的な陸上競技場にて全校運動会を開催。ハウスチーム対抗で競い合い、保護者の皆さまにもご観覧・熱心に応援いただけます。" data-en="Held once a year at a professional athletic track. Whole-school inter-house competition with parents warmly invited to cheer and participate.">
+                  年に1回、本格的な陸上競技場にて全校運動会を開催。ハウスチーム対抗で競い合い、保護者の皆さまにもご観覧・熱心に応援いただけます。
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 

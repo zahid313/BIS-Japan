@@ -23,9 +23,15 @@
         <a href="tel:046-259-9108" class="tabular-nums" style="color: #FCD34D;">📞 046-259-9108</a>
       </div>
       <div class="utility-right">
-        <div class="lang-switch">
-          <button class="lang-btn active" data-lang="ja">日本語</button>
-          <button class="lang-btn" data-lang="en">English</button>
+        <div class="lang-switch" role="group" aria-label="言語切り替え / Language Switcher">
+          <button class="lang-btn lang-btn-ja active" data-lang="ja" aria-pressed="true">
+            <span class="flag-icon">🇯🇵</span>
+            <span>日本語</span>
+          </button>
+          <button class="lang-btn lang-btn-en" data-lang="en" aria-pressed="false">
+            <span class="flag-icon">🇬🇧</span>
+            <span>English</span>
+          </button>
         </div>
       </div>
     </div>
@@ -52,6 +58,16 @@
         </ul>
       </nav>
       <div class="header-actions">
+        <div class="lang-switch header-cta-desktop" role="group" aria-label="言語切り替え / Language Switcher">
+          <button class="lang-btn lang-btn-ja active" data-lang="ja" aria-pressed="true">
+            <span class="flag-icon">🇯🇵</span>
+            <span>日本語</span>
+          </button>
+          <button class="lang-btn lang-btn-en" data-lang="en" aria-pressed="false">
+            <span class="flag-icon">🇬🇧</span>
+            <span>English</span>
+          </button>
+        </div>
         <a href="contact.html" class="btn btn-primary" data-ja="無料体験レッスン予約" data-en="Book a Free Trial">無料体験レッスン予約</a>
       </div>
     </div>
@@ -93,9 +109,15 @@
             <p style="font-size: 15px; color: #44403C; line-height: 1.8; margin-bottom: 16px;">
               毎日の登下校を安全にサポートするため、専用スクールバスを運行しております。専任のドライバーに加え、添乗スタッフが同乗してお子様の乗降を見守ります。
             </p>
-            <div style="background: #EEF4FC; border-radius: 10px; padding: 16px; font-size: 14px; color: #1B365D;">
+            <div style="background: #EEF4FC; border-radius: 10px; padding: 16px; font-size: 14px; color: #1B365D; margin-bottom: 16px;">
               <strong>運行エリア目安:</strong> 海老名市全域、綾瀬市、大和市南部、厚木市東部、藤沢市北部など、学校から半径約5km圏内。
               <br>※停車位置はお子様のご自宅付近や安全な集合場所を個別に調整いたします。
+            </div>
+            <div style="border-radius: 12px; overflow: hidden; border: 1px solid #E2E8F0;">
+              <img src="images/event-excursion-zoo.png" alt="スクールバスを活用した年1回の校外学習・遠足風景" style="width: 100%; height: 200px; object-fit: cover; display: block;" loading="lazy">
+              <div style="padding: 10px; font-size: 12px; color: #64748B; background: #FAFAF9;">
+                毎日の安心送迎に加え、年1回の校外学習や遠足にもスクールバスを活用しています。
+              </div>
             </div>
           </div>
 

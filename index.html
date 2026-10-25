@@ -38,9 +38,15 @@
       </div>
       <div class="utility-right">
         <a href="#contact" class="btn btn-line" style="padding: 4px 12px; font-size: 12px;" data-ja="🟢 公式LINEで簡単相談" data-en="🟢 LINE Consultation">🟢 公式LINEで簡単相談</a>
-        <div class="lang-switch" role="group" aria-label="言語切り替え">
-          <button class="lang-btn active" data-lang="ja" aria-pressed="true">日本語</button>
-          <button class="lang-btn" data-lang="en" aria-pressed="false">English</button>
+        <div class="lang-switch" role="group" aria-label="言語切り替え / Language Switcher">
+          <button class="lang-btn lang-btn-ja active" data-lang="ja" aria-pressed="true">
+            <span class="flag-icon">🇯🇵</span>
+            <span>日本語</span>
+          </button>
+          <button class="lang-btn lang-btn-en" data-lang="en" aria-pressed="false">
+            <span class="flag-icon">🇬🇧</span>
+            <span>English</span>
+          </button>
         </div>
       </div>
     </div>
@@ -73,9 +79,15 @@
       </nav>
 
       <div class="header-actions">
-        <div class="lang-switch header-cta-desktop" style="display: none;" role="group">
-          <button class="lang-btn active" data-lang="ja">JA</button>
-          <button class="lang-btn" data-lang="en">EN</button>
+        <div class="lang-switch header-cta-desktop" role="group" aria-label="言語切り替え / Language Switcher">
+          <button class="lang-btn lang-btn-ja active" data-lang="ja" aria-pressed="true">
+            <span class="flag-icon">🇯🇵</span>
+            <span>日本語</span>
+          </button>
+          <button class="lang-btn lang-btn-en" data-lang="en" aria-pressed="false">
+            <span class="flag-icon">🇬🇧</span>
+            <span>English</span>
+          </button>
         </div>
         <a href="#booking" class="btn btn-primary header-cta-desktop" data-ja="無料体験レッスン予約" data-en="Book a Free Trial">無料体験レッスン予約</a>
         <button id="mobileMenuToggle" class="mobile-menu-btn" aria-label="メニューを開く" aria-expanded="false">
@@ -98,9 +110,15 @@
         <span style="font-weight: 700; color: #1B365D;">MENU</span>
         <button id="mobileDrawerClose" style="font-size: 24px; padding: 8px;">✕</button>
       </div>
-      <div class="lang-switch" style="align-self: flex-start;">
-        <button class="lang-btn active" data-lang="ja">日本語</button>
-        <button class="lang-btn" data-lang="en">English</button>
+      <div class="lang-switch-drawer" style="align-self: flex-start;" role="group" aria-label="言語切り替え / Language Switcher">
+        <button class="lang-btn lang-btn-ja active" data-lang="ja">
+          <span class="flag-icon">🇯🇵</span>
+          <span>日本語</span>
+        </button>
+        <button class="lang-btn lang-btn-en" data-lang="en">
+          <span class="flag-icon">🇬🇧</span>
+          <span>English</span>
+        </button>
       </div>
       <nav style="display: flex; flex-direction: column; gap: 16px;">
         <a href="about.html" class="drawer-nav-link" style="font-size: 16px; font-weight: 600; color: #1C1917;" data-ja="当校について" data-en="About Us">当校について</a>
@@ -167,25 +185,14 @@
         <!-- Hero Visual Frame -->
         <div class="hero-visual-wrap">
           <div class="hero-card">
-            <div class="hero-image-frame">
-              <!-- Visual Hero Illustration of Global Learning -->
-              <svg viewBox="0 0 600 400" width="100%" height="100%" style="background: linear-gradient(135deg, #1B365D 0%, #0D1D34 100%);">
-                <!-- Warm ambient glow -->
-                <circle cx="300" cy="180" r="140" fill="#F59E0B" opacity="0.15"/>
-                <circle cx="450" cy="120" r="80" fill="#2563EB" opacity="0.2"/>
-                <!-- Classroom Illustration Graphic -->
-                <rect x="80" y="220" width="440" height="16" rx="8" fill="#FDE68A" opacity="0.4"/>
-                <path d="M160 220 L160 340 M440 220 L440 340" stroke="#FDE68A" stroke-width="8" opacity="0.4"/>
-                <!-- Cheerful Student Silhouette Figures -->
-                <circle cx="240" cy="150" r="32" fill="#FEF3C7"/>
-                <path d="M200 240 C200 190 280 190 280 240 Z" fill="#D97706"/>
-                <circle cx="360" cy="140" r="34" fill="#FEE2E2"/>
-                <path d="M315 240 C315 180 405 180 405 240 Z" fill="#2563EB"/>
-                <!-- Open Cambridge Book -->
-                <path d="M260 200 C280 190 300 190 300 215 C300 190 320 190 340 200 L340 230 C320 220 300 220 300 245 C300 220 280 220 260 230 Z" fill="#FFFFFF"/>
-                <text x="300" y="290" text-anchor="middle" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="20" letter-spacing="1">AUTHENTIC CAMBRIDGE BILINGUAL CLASS</text>
-                <text x="300" y="320" text-anchor="middle" fill="#CBD5E1" font-size="14">English Immersion &amp; Native Kokugo in Ebina</text>
-              </svg>
+            <div class="hero-photo-container">
+              <img src="images/hero-students.jpg" alt="BIS Japanの明るい教室で元気に手を挙げる小学生の授業風景" class="hero-photo-img" width="1280" height="853">
+              <div class="hero-photo-overlay">
+                <div>
+                  <span style="background: rgba(217, 119, 6, 0.9); color: #FFFFFF; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 4px; display: inline-block; margin-bottom: 4px;" data-ja="実際の授業風景" data-en="Actual Classroom">実際の授業風景</span>
+                  <div style="font-size: 15px; font-weight: 800; color: #FFFFFF;" data-ja="海老名市・少人数制バイリンガル教育（ケンブリッジ＆国語）" data-en="Small-Class Bilingual Excellence in Ebina">海老名市・少人数制バイリンガル教育（ケンブリッジ＆国語）</div>
+                </div>
+              </div>
             </div>
 
             <!-- Floating Trust Badges -->
@@ -347,6 +354,9 @@
         <div class="stage-panel active" id="stage-preprimary" role="tabpanel" aria-labelledby="tab-preprimary">
           <div class="stage-detail-card">
             <div>
+              <div class="stage-photo-banner">
+                <img src="images/preprimary-lkg.jpg" alt="幼児部（プリ・プライマリー）のあたたかな教室風景" width="1600" height="1200" loading="lazy">
+              </div>
               <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 12px; flex-wrap: wrap;">
                 <span class="curriculum-badge" data-ja="3歳〜5歳児（年少・年中・年長）" data-en="Ages 3-5 (Early Years)">3歳〜5歳児（年少・年中・年長）</span>
                 <span style="background: #FEF3C7; color: #92400E; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px;" data-ja="幼保無償化対象クラス" data-en="Gov Subsidy Eligible">幼保無償化対象クラス</span>
@@ -414,6 +424,9 @@
         <div class="stage-panel" id="stage-primary" role="tabpanel" aria-labelledby="tab-primary">
           <div class="stage-detail-card">
             <div>
+              <div class="stage-photo-banner">
+                <img src="images/classroom-digital.jpg" alt="小学部（プライマリー）の探究型授業風景" width="1280" height="853" loading="lazy">
+              </div>
               <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 12px; flex-wrap: wrap;">
                 <span class="curriculum-badge" style="background: #EEF4FC; color: #1B365D;" data-ja="6歳〜11歳（小学1年生〜小学5年生）" data-en="Ages 6-11 (Grades 1-5)">6歳〜11歳（小学1年生〜小学5年生）</span>
                 <span style="background: #E0E7FF; color: #3730A3; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px;" data-ja="ケンブリッジ国際認定校" data-en="Cambridge International School">ケンブリッジ国際認定校</span>
@@ -479,6 +492,9 @@
         <div class="stage-panel" id="stage-secondary" role="tabpanel" aria-labelledby="tab-secondary">
           <div class="stage-detail-card">
             <div>
+              <div class="stage-photo-banner">
+                <img src="images/event-kanagawa-expo.png" alt="中等部・高等部 生徒の地域・国際交流プレゼンテーション" width="527" height="358" loading="lazy">
+              </div>
               <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 12px; flex-wrap: wrap;">
                 <span class="curriculum-badge" style="background: #F3E8FF; color: #6B21A8;" data-ja="11歳〜（Grade 6 〜 Pre-IGCSE / A-Level）" data-en="Ages 11+ (Grade 6 to A-Level)">11歳〜（Grade 6 〜 Pre-IGCSE / A-Level）</span>
                 <span style="background: #E0E7FF; color: #3730A3; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px;" data-ja="国際大学進学準備" data-en="Global University Pathways">国際大学進学準備</span>
@@ -820,6 +836,137 @@
     </section>
 
     <!-- =========================================================================
+         10B. SCHOOL LIFE & EVENTS GALLERY (Real Authentic Photography)
+         ========================================================================= -->
+    <section class="section" id="gallery" aria-labelledby="galleryTitle">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-subtitle" data-ja="学校生活・年間行事" data-en="SCHOOL LIFE & COMMUNITY">学校生活・年間行事</span>
+          <h2 id="galleryTitle" class="section-title" data-ja="笑顔あふれる日常と、多彩な学びのイベント" data-en="Vibrant School Life, Outdoor Excursions & Cultural Celebrations">
+            笑顔あふれる日常と、多彩な学びのイベント
+          </h2>
+          <p class="section-desc" data-ja="運動会や文化祭、海老名市内外への校外学習など、仲間とともに感動を共有する生き生きとした子どもたちの姿です。" data-en="From Sports Day and Cultural Festivals to local community excursions in Ebina, children learn and grow through shared joyful experiences.">
+            運動会や文化祭、海老名市内外への校外学習など、仲間とともに感動を共有する生き生きとした子どもたちの姿です。
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <!-- Item 1: Sports Day -->
+          <div class="gallery-card">
+            <div class="gallery-img-wrap">
+              <img src="images/event-sports-day.png" alt="BIS Japan 年1回 全校運動会・スポーツミート" class="gallery-img" loading="lazy">
+              <span class="gallery-badge" style="background: rgba(27, 54, 93, 0.9);" data-ja="年1回 全校運動会" data-en="Annual Sports Meet">年1回 全校運動会</span>
+            </div>
+            <div class="gallery-info">
+              <h3 class="gallery-title" data-ja="年1回 運動会・スポーツミート" data-en="Annual Sports Meet">年1回 運動会・スポーツミート</h3>
+              <p class="gallery-desc" data-ja="年に1回開催される全校ビッグイベント。本格的な陸上競技場でハウスチーム対抗（赤白対戦）のスポーツ大会を開催し、団結力とフェアプレー精神を育みます。" data-en="Held once annually, our major whole-school athletic meet features spirited inter-house track competitions cultivating teamwork, fair play, and healthy confidence.">
+                年に1回開催される全校ビッグイベント。本格的な陸上競技場でハウスチーム対抗（赤白対戦）のスポーツ大会を開催し、団結力とフェアプレー精神を育みます。
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 2: Japanese Cultural Traditions in Yukata -->
+          <div class="gallery-card">
+            <div class="gallery-img-wrap">
+              <img src="images/event-japanese-culture.png" alt="文化祭で浴衣を着て伝統劇を発表する子どもたち" class="gallery-img" loading="lazy">
+              <span class="gallery-badge" style="background: rgba(220, 38, 38, 0.9);" data-ja="日本文化の尊重" data-en="Japanese Culture">日本文化の尊重</span>
+            </div>
+            <div class="gallery-info">
+              <h3 class="gallery-title" data-ja="文化祭・伝統文化ステージ" data-en="Cultural Tradition Stage">文化祭・伝統文化ステージ</h3>
+              <p class="gallery-desc" data-ja="浴衣や甚平を着て日本の昔話劇や歌を堂々と披露。日本の美しい伝統文化やマナーを誇りを持って学びます。" data-en="Students wear traditional yukata and jinbei to present Japanese folklore plays and songs, honoring cultural heritage.">
+                浴衣や甚平を着て日本の昔話劇や歌を堂々と披露。日本の美しい伝統文化やマナーを誇りを持って学びます。
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 3: Ebina City Fire Department Excursion -->
+          <div class="gallery-card">
+            <div class="gallery-img-wrap">
+              <img src="images/event-ebina-fire-station.png" alt="海老名市消防署の見学と防災学習" class="gallery-img" loading="lazy">
+              <span class="gallery-badge" style="background: rgba(217, 119, 6, 0.9);" data-ja="海老名市地域密着" data-en="Ebina Community">海老名市地域密着</span>
+            </div>
+            <div class="gallery-info">
+              <h3 class="gallery-title" data-ja="海老名市消防署 校外学習" data-en="Ebina Fire Station Visit">海老名市消防署 校外学習</h3>
+              <p class="gallery-desc" data-ja="海老名市消防署を訪れ、本物の消防車や隊員の仕事を間近で見学。地域社会への感謝と防災意識を体験的に学びます。" data-en="Hands-on community field trip to Ebina City Fire Department, learning civic gratitude and disaster prevention.">
+                海老名市消防署を訪れ、本物の消防車や隊員の仕事を間近で見学。地域社会への感謝と防災意識を体験的に学びます。
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 4: Graduation & Award Ceremony -->
+          <div class="gallery-card">
+            <div class="gallery-img-wrap">
+              <img src="images/event-graduation.png" alt="卒業式・アワードセレモニーでの集合写真" class="gallery-img" loading="lazy">
+              <span class="gallery-badge" style="background: rgba(79, 70, 229, 0.9);" data-ja="卒業式・修了式" data-en="Graduation Ceremony">卒業式・修了式</span>
+            </div>
+            <div class="gallery-info">
+              <h3 class="gallery-title" data-ja="卒業式・アワードセレモニー" data-en="Graduation & Awards">卒業式・アワードセレモニー</h3>
+              <p class="gallery-desc" data-ja="制服（ブレザー）を着た子どもたちが保護者や教員の見守る中、1年間の成長と学問の努力を称え合います。" data-en="Formal ceremony in academic uniforms honoring student perseverance, linguistic milestones, and personal achievements.">
+                制服（ブレザー）を着た子どもたちが保護者や教員の見守る中、1年間の成長と学問の努力を称え合います。
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 5: Kanagawa International Exchange Event -->
+          <div class="gallery-card">
+            <div class="gallery-img-wrap">
+              <img src="images/event-kanagawa-expo.png" alt="かながわ国際交流展での生徒発表" class="gallery-img" loading="lazy">
+              <span class="gallery-badge" style="background: rgba(5, 150, 105, 0.9);" data-ja="県内国際交流展" data-en="Kanagawa Expo">県内国際交流展</span>
+            </div>
+            <div class="gallery-info">
+              <h3 class="gallery-title" data-ja="かながわ国際交流展 発表会" data-en="Kanagawa Global Expo">かながわ国際交流展 発表会</h3>
+              <p class="gallery-desc" data-ja="「かながわからせかいへ」をテーマに、生徒たちが英語と日本語で作成した探究ポスターをステージで発表。" data-en="Students present bilingual research posters on world cultures at Kanagawa Prefecture's international exchange fair.">
+                「かながわからせかいへ」をテーマに、生徒たちが英語と日本語で作成した探究ポスターをステージで発表。
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 6: Annual School Trips (Overnight & Day Excursion) -->
+          <div class="gallery-card">
+            <div class="gallery-img-wrap">
+              <img src="images/event-excursion-zoo.png" alt="年1回スクールトリップ・校外学習" class="gallery-img" loading="lazy">
+              <span class="gallery-badge" style="background: rgba(13, 148, 136, 0.9);" data-ja="年1回 スクールトリップ" data-en="Annual School Trip">年1回 スクールトリップ</span>
+            </div>
+            <div class="gallery-info">
+              <h3 class="gallery-title" data-ja="年1回 スクールトリップ（宿泊＆日帰り）" data-en="Annual School Trips (Overnight & Day)">年1回 スクールトリップ（宿泊＆日帰り）</h3>
+              <p class="gallery-desc" data-ja="【Grade 4以上】年1回・2泊3日の宿泊体験学習（自然体験・探究プロジェクト）。【Grade 3以下・幼児部】年1回・日帰り遠足（動物園・自然公園）。学年に応じた自立心と知的好奇心を育みます。" data-en="Annual experiential learning: a 3-day study trip for Grade 4 and above, and a joyful 1-day outdoor excursion for below grades and early years.">
+                【Grade 4以上】年1回・2泊3日の宿泊体験学習（自然体験・探究プロジェクト）。【Grade 3以下・幼児部】年1回・日帰り遠足（動物園・自然公園）。学年に応じた自立心と知的好奇心を育みます。
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 7: Lunchtime (No school lunch, students bring own bento) -->
+          <div class="gallery-card">
+            <div class="gallery-img-wrap">
+              <img src="images/event-lunch.png" alt="愛情のこもったお弁当を囲む温かなランチタイム" class="gallery-img" loading="lazy">
+              <span class="gallery-badge" style="background: rgba(185, 28, 28, 0.9);" data-ja="お弁当持参（給食なし）" data-en="Home Bento (No School Lunch)">お弁当持参（給食なし）</span>
+            </div>
+            <div class="gallery-info">
+              <h3 class="gallery-title" data-ja="お弁当ランチタイム・食育の時間" data-en="Home-Packed Lunch & Bento Time">お弁当ランチタイム・食育の時間</h3>
+              <p class="gallery-desc" data-ja="当校では給食の提供はなく、全生徒がご家庭からのお弁当を持参します。食物アレルギーも安心で、「いただきます」の挨拶や食への感謝を友達や先生と笑顔で分かち合います。" data-en="The school does not offer catering; students bring their own home-packed lunch (Bento). Fosters gratitude and manners while guaranteeing complete allergy peace-of-mind.">
+                当校では給食の提供はなく、全生徒がご家庭からのお弁当を持参します。食物アレルギーも安心で、「いただきます」の挨拶や食への感謝を友達や先生と笑顔で分かち合います。
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 8: Family Community Picnic -->
+          <div class="gallery-card">
+            <div class="gallery-img-wrap">
+              <img src="images/event-family-picnic.png" alt="保護者と先生、子どもたちのファミリーピクニック" class="gallery-img" loading="lazy">
+              <span class="gallery-badge" data-ja="保護者・地域コミュニティ" data-en="Family Community">保護者・地域コミュニティ</span>
+            </div>
+            <div class="gallery-info">
+              <h3 class="gallery-title" data-ja="ファミリーピクニック・親睦会" data-en="Family Community Picnic">ファミリーピクニック・親睦会</h3>
+              <p class="gallery-desc" data-ja="保護者同士のつながりも深まるアウトドア親睦会。子育ての悩みや学校生活の相談も気軽に分かち合えます。" data-en="Outdoor family day fostering warm friendships among parents, teachers, and children in a relaxed natural setting.">
+                保護者同士のつながりも深まるアウトドア親睦会。子育ての悩みや学校生活の相談も気軽に分かち合えます。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
          11. ACCESS & 5KM TRANSIT MAP
          ========================================================================= -->
     <section class="section section-subtle" id="access" aria-labelledby="accessTitle">
@@ -981,6 +1128,32 @@
             </button>
             <div class="faq-answer" data-ja="学校（海老名市本郷）から半径約5km圏内（海老名市・綾瀬市・大和市・厚木市周辺）を運行しております。安全な乗降場所をご自宅付近に設定いたしますので、個別に見学時ご相談ください。" data-en="Our routes cover approximately a 5km radius around the school campus in Ebina, Ayase, Yamato, and Atsugi. Pickup spots are tailored near students' homes.">
               学校（海老名市本郷）から半径約5km圏内（海老名市・綾瀬市・大和市・厚木市周辺）を運行しております。安全な乗降場所をご自宅付近に設定いたしますので、個別に見学時ご相談ください。
+            </div>
+          </div>
+
+          <!-- FAQ 6: Lunch & Bento Policy -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <span data-ja="Q6. 給食の提供はありますか？（昼食について）" data-en="Q6. Does the school provide lunch or catering?">
+                Q6. 給食の提供はありますか？（昼食について）
+              </span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" data-ja="当校では給食の提供はございません。全学年の生徒にご家庭からのお弁当（Packed Lunch）と水筒をご持参いただいております。食物アレルギーをお持ちのお子様やご家庭の食の習慣にも安全に対応できるほか、温かな団らんと食育の時間を大切にしています。" data-en="The school does not provide lunch catering. All students bring their own home-packed lunch (Bento) and water bottle. This ensures complete safety for food allergies and dietary traditions.">
+              当校では給食の提供はございません。全学年の生徒にご家庭からのお弁当（Packed Lunch）と水筒をご持参いただいております。食物アレルギーをお持ちのお子様やご家庭の食の習慣にも安全に対応できるほか、温かな団らんと食育の時間を大切にしています。
+            </div>
+          </div>
+
+          <!-- FAQ 7: Annual Trips & Sports Meet -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <span data-ja="Q7. 遠足・修学旅行や運動会などの年間行事はありますか？" data-en="Q7. What are the major annual school events (Trips & Sports Meet)?">
+                Q7. 遠足・修学旅行や運動会などの年間行事はありますか？
+              </span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" data-ja="はい、ございます。【全校運動会】年に1回、本格的な陸上競技場にてハウスチーム対抗のスポーツミートを開催します。【スクールトリップ】年に1回開催し、Grade 4以上は2泊3日の宿泊体験学習（自然体験・探究プロジェクト）、Grade 3以下および幼児部は1日完結の日帰り遠足（動物園・体験施設）を実施しています。" data-en="Yes! We hold one Annual Sports Meet each year at an athletic track with inter-house competitions. For our Annual School Trip: Grade 4 and above participate in a 3-day overnight study trip, while below grades and early years enjoy a 1-day outdoor excursion.">
+              はい、ございます。【全校運動会】年に1回、本格的な陸上競技場にてハウスチーム対抗のスポーツミートを開催します。【スクールトリップ】年に1回開催し、Grade 4以上は2泊3日の宿泊体験学習（自然体験・探究プロジェクト）、Grade 3以下および幼児部は1日完結の日帰り遠足（動物園・体験施設）を実施しています。
             </div>
           </div>
         </div>

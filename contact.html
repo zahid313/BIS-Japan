@@ -23,9 +23,15 @@
         <a href="tel:046-259-9108" class="tabular-nums" style="color: #FCD34D;">📞 046-259-9108</a>
       </div>
       <div class="utility-right">
-        <div class="lang-switch">
-          <button class="lang-btn active" data-lang="ja">日本語</button>
-          <button class="lang-btn" data-lang="en">English</button>
+        <div class="lang-switch" role="group" aria-label="言語切り替え / Language Switcher">
+          <button class="lang-btn lang-btn-ja active" data-lang="ja" aria-pressed="true">
+            <span class="flag-icon">🇯🇵</span>
+            <span>日本語</span>
+          </button>
+          <button class="lang-btn lang-btn-en" data-lang="en" aria-pressed="false">
+            <span class="flag-icon">🇬🇧</span>
+            <span>English</span>
+          </button>
         </div>
       </div>
     </div>
@@ -52,6 +58,16 @@
         </ul>
       </nav>
       <div class="header-actions">
+        <div class="lang-switch header-cta-desktop" role="group" aria-label="言語切り替え / Language Switcher">
+          <button class="lang-btn lang-btn-ja active" data-lang="ja" aria-pressed="true">
+            <span class="flag-icon">🇯🇵</span>
+            <span>日本語</span>
+          </button>
+          <button class="lang-btn lang-btn-en" data-lang="en" aria-pressed="false">
+            <span class="flag-icon">🇬🇧</span>
+            <span>English</span>
+          </button>
+        </div>
         <a href="contact.html" class="btn btn-primary" data-ja="無料体験レッスン予約" data-en="Book a Free Trial">無料体験レッスン予約</a>
       </div>
     </div>

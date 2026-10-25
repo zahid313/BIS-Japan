@@ -23,9 +23,15 @@
         <a href="tel:046-259-9108" class="tabular-nums" style="color: #FCD34D;">📞 046-259-9108</a>
       </div>
       <div class="utility-right">
-        <div class="lang-switch">
-          <button class="lang-btn active" data-lang="ja">日本語</button>
-          <button class="lang-btn" data-lang="en">English</button>
+        <div class="lang-switch" role="group" aria-label="言語切り替え / Language Switcher">
+          <button class="lang-btn lang-btn-ja active" data-lang="ja" aria-pressed="true">
+            <span class="flag-icon">🇯🇵</span>
+            <span>日本語</span>
+          </button>
+          <button class="lang-btn lang-btn-en" data-lang="en" aria-pressed="false">
+            <span class="flag-icon">🇬🇧</span>
+            <span>English</span>
+          </button>
         </div>
       </div>
     </div>
@@ -52,6 +58,16 @@
         </ul>
       </nav>
       <div class="header-actions">
+        <div class="lang-switch header-cta-desktop" role="group" aria-label="言語切り替え / Language Switcher">
+          <button class="lang-btn lang-btn-ja active" data-lang="ja" aria-pressed="true">
+            <span class="flag-icon">🇯🇵</span>
+            <span>日本語</span>
+          </button>
+          <button class="lang-btn lang-btn-en" data-lang="en" aria-pressed="false">
+            <span class="flag-icon">🇬🇧</span>
+            <span>English</span>
+          </button>
+        </div>
         <a href="contact.html" class="btn btn-primary" data-ja="無料体験レッスン予約" data-en="Book a Free Trial">無料体験レッスン予約</a>
       </div>
     </div>
@@ -125,6 +141,39 @@
             </div>
             <div style="padding: 12px; background: #FAFAF9; border-radius: 8px; font-weight: 600; font-size: 14px; color: #1B365D;">
               8. 誠実さと責任感の育成 (Sense of Responsibility)
+            </div>
+          </div>
+        </div>
+
+        <!-- Campus & Community Real Photography -->
+        <div style="background: #FFFFFF; border-radius: 20px; border: 1px solid #E7E5E4; padding: 40px; box-shadow: var(--shadow-md); margin-bottom: 40px;">
+          <h2 style="font-size: 24px; color: #1B365D; margin-bottom: 8px;" data-ja="キャンパス環境・学習設備" data-en="Campus Environment & Learning Facilities">
+            キャンパス環境・学習設備
+          </h2>
+          <p style="font-size: 15px; color: #57534E; margin-bottom: 24px;" data-ja="海老名市本郷の緑豊かな落ち着いた学習環境。充実の図書室、安全なプレイホール、多目的アクティビティスペースを備えています。" data-en="Quiet, nurturing learning environment in Ebina City, featuring an extensive bilingual library, safe early years hall, and multi-purpose activity facilities.">
+            海老名市本郷の緑豊かな落ち着いた学習環境。充実の図書室、安全なプレイホール、多目的アクティビティスペースを備えています。
+          </p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+            <div style="border-radius: 14px; overflow: hidden; border: 1px solid #E2E8F0; background: #FAFAF9;">
+              <img src="images/campus-library.jpg" alt="スクール図書室・自習ホール" style="width: 100%; height: 180px; object-fit: cover; display: block;" loading="lazy">
+              <div style="padding: 14px;">
+                <h4 style="font-size: 15px; color: #1B365D; margin-bottom: 4px;" data-ja="スクール図書室・読書ホール" data-en="School Library & Reading Hall">スクール図書室・読書ホール</h4>
+                <p style="font-size: 13px; color: #64748B; margin: 0;" data-ja="英語と日本語の児童書・図鑑・洋書テキストを豊富に常備。" data-en="Extensive collection of English and Japanese literature and reference books.">英語と日本語の児童書・図鑑・洋書テキストを豊富に常備。</p>
+              </div>
+            </div>
+            <div style="border-radius: 14px; overflow: hidden; border: 1px solid #E2E8F0; background: #FAFAF9;">
+              <img src="images/preprimary-hall.jpg" alt="幼児部アクティビティ・プレイホール" style="width: 100%; height: 180px; object-fit: cover; display: block;" loading="lazy">
+              <div style="padding: 14px;">
+                <h4 style="font-size: 15px; color: #1B365D; margin-bottom: 4px;" data-ja="幼児部プレイ＆アクティビティホール" data-en="Early Years Activity Hall">幼児部プレイ＆アクティビティホール</h4>
+                <p style="font-size: 13px; color: #64748B; margin: 0;" data-ja="木製ハウスやクラフトデスクを備えた温かな創造空間。" data-en="Warm, creative play space with wooden playhouse and learning corners.">木製ハウスやクラフトデスクを備えた温かな創造空間。</p>
+              </div>
+            </div>
+            <div style="border-radius: 14px; overflow: hidden; border: 1px solid #E2E8F0; background: #FAFAF9;">
+              <img src="images/event-graduation.png" alt="年間表彰式・卒業式典" style="width: 100%; height: 180px; object-fit: cover; display: block;" loading="lazy">
+              <div style="padding: 14px;">
+                <h4 style="font-size: 15px; color: #1B365D; margin-bottom: 4px;" data-ja="年間表彰式・アニュアルセレモニー" data-en="Annual Awards & Graduation">年間表彰式・アニュアルセレモニー</h4>
+                <p style="font-size: 13px; color: #64748B; margin: 0;" data-ja="日々の探究努力（Strive・Believe・Achieve）を讃える式典。" data-en="Celebrating diligence, character, and academic achievement.">日々の探究努力（Strive・Believe・Achieve）を讃える式典。</p>
+              </div>
             </div>
           </div>
         </div>

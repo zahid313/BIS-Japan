@@ -23,9 +23,15 @@
         <a href="tel:046-259-9108" class="tabular-nums" style="color: #FCD34D;">📞 046-259-9108</a>
       </div>
       <div class="utility-right">
-        <div class="lang-switch">
-          <button class="lang-btn active" data-lang="ja">日本語</button>
-          <button class="lang-btn" data-lang="en">English</button>
+        <div class="lang-switch" role="group" aria-label="言語切り替え / Language Switcher">
+          <button class="lang-btn lang-btn-ja active" data-lang="ja" aria-pressed="true">
+            <span class="flag-icon">🇯🇵</span>
+            <span>日本語</span>
+          </button>
+          <button class="lang-btn lang-btn-en" data-lang="en" aria-pressed="false">
+            <span class="flag-icon">🇬🇧</span>
+            <span>English</span>
+          </button>
         </div>
       </div>
     </div>
@@ -52,6 +58,16 @@
         </ul>
       </nav>
       <div class="header-actions">
+        <div class="lang-switch header-cta-desktop" role="group" aria-label="言語切り替え / Language Switcher">
+          <button class="lang-btn lang-btn-ja active" data-lang="ja" aria-pressed="true">
+            <span class="flag-icon">🇯🇵</span>
+            <span>日本語</span>
+          </button>
+          <button class="lang-btn lang-btn-en" data-lang="en" aria-pressed="false">
+            <span class="flag-icon">🇬🇧</span>
+            <span>English</span>
+          </button>
+        </div>
         <a href="contact.html" class="btn btn-primary" data-ja="無料体験レッスン予約" data-en="Book a Free Trial">無料体験レッスン予約</a>
       </div>
     </div>
@@ -75,43 +91,76 @@
     <section class="section">
       <div class="container" style="max-width: 960px;">
         <!-- Subject 1: English Language Arts & Phonics -->
-        <div style="background: #FFFFFF; border-radius: 18px; border: 1px solid #E7E5E4; padding: 32px; margin-bottom: 24px; box-shadow: var(--shadow-sm);">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-            <span style="font-size: 28px;">🔤</span>
-            <h2 style="font-size: 22px; color: #1B365D;">1. 英語・フォニックス (English Language Arts)</h2>
+        <div style="background: #FFFFFF; border-radius: 18px; border: 1px solid #E7E5E4; border-left: 6px solid #1B365D; padding: 32px; margin-bottom: 24px; box-shadow: var(--shadow-sm);">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span class="badge-flag-en"><span class="flag-icon">🇬🇧</span> English</span>
+              <h2 style="font-size: 22px; color: #1B365D; margin: 0;">1. 英語・フォニックス (English Language Arts)</h2>
+            </div>
+            <span style="font-size: 12px; font-weight: 700; color: #1B365D; background: #EEF4FC; padding: 4px 10px; border-radius: 999px;">ケンブリッジ国際標準</span>
           </div>
-          <p style="font-size: 15px; color: #44403C; line-height: 1.8;">
+          <p style="font-size: 15px; color: #44403C; line-height: 1.8; margin-bottom: 20px;">
             英国初等教育の標準であるシンセティック・フォニックス（Synthetic Phonics）を導入。文字と音の規則性を遊びや歌を通じて体感し、暗記に頼らず初めて見る英単語でも自力で読める力を育みます。小学部では読解力・エッセイライティング・ディベートスキルへと発展させます。
           </p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px;">
+            <div style="border-radius: 12px; overflow: hidden; border: 1px solid #E2E8F0;">
+              <img src="images/preprimary-lkg.jpg" alt="幼児部フォニックス・描画指導" style="width: 100%; height: 160px; object-fit: cover; display: block;" loading="lazy">
+              <div style="padding: 10px; font-size: 12px; color: #64748B; background: #FAFAF9;">遊びとフォニックスで自然に英語の音を定着</div>
+            </div>
+            <div style="border-radius: 12px; overflow: hidden; border: 1px solid #E2E8F0;">
+              <img src="images/library-reading-corner.png" alt="図書室英語リーディングコーナー" style="width: 100%; height: 160px; object-fit: cover; display: block;" loading="lazy">
+              <div style="padding: 10px; font-size: 12px; color: #64748B; background: #FAFAF9;">多読・音読を支える豊富な英語リーディングコレクション</div>
+            </div>
+          </div>
         </div>
 
         <!-- Subject 2: Japanese Kokugo -->
-        <div style="background: #FFFFFF; border-radius: 18px; border: 1px solid #E7E5E4; padding: 32px; margin-bottom: 24px; box-shadow: var(--shadow-sm); border-left: 6px solid #059669;">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-            <span style="font-size: 28px;">🇯🇵</span>
-            <h2 style="font-size: 22px; color: #047857;">2. 日本語・国語教育 (Japanese Kokugo Literacy)</h2>
+        <div style="background: #FFFFFF; border-radius: 18px; border: 1px solid #E7E5E4; padding: 32px; margin-bottom: 24px; box-shadow: var(--shadow-sm); border-left: 6px solid #DC2626;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span class="badge-flag-ja"><span class="flag-icon">🇯🇵</span> 日本語</span>
+              <h2 style="font-size: 22px; color: #991B1B; margin: 0;">2. 日本語・国語教育 (Japanese Kokugo Literacy)</h2>
+            </div>
+            <span style="font-size: 12px; font-weight: 700; color: #991B1B; background: #FFF1F2; padding: 4px 10px; border-radius: 999px;">文部科学省検定教科書・毎日指導</span>
           </div>
-          <p style="font-size: 15px; color: #44403C; line-height: 1.8;">
+          <p style="font-size: 15px; color: #44403C; line-height: 1.8; margin-bottom: 20px;">
             日本の公立小学校で採用されている文部科学省検定済みの国語教科書を使用。日本の教員免許を持つ日本人専任教員が毎日指導します。ひらがな・カタカナ・学年配当漢字の習得はもちろん、音読・詩・作文を通じて情緒豊かな母国語の表現力を培います。日本の小学校や私立中学校への進学にも万全です。
           </p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px;">
+            <div style="border-radius: 12px; overflow: hidden; border: 1px solid #E2E8F0;">
+              <img src="images/event-japanese-culture.png" alt="浴衣・甚平での日本伝統文化・劇発表会" style="width: 100%; height: 160px; object-fit: cover; display: block;" loading="lazy">
+              <div style="padding: 10px; font-size: 12px; color: #64748B; background: #FAFAF9;">浴衣を着た伝統文化劇など母国語の情緒も育成</div>
+            </div>
+            <div style="border-radius: 12px; overflow: hidden; border: 1px solid #E2E8F0;">
+              <img src="images/event-sports-day.png" alt="年1回 全校運動会・スポーツミート" style="width: 100%; height: 160px; object-fit: cover; display: block;" loading="lazy">
+              <div style="padding: 10px; font-size: 12px; color: #64748B; background: #FAFAF9;">年1回の全校運動会や学年別スクールトリップ（G4以上2泊3日／G3以下日帰り）も充実</div>
+            </div>
+          </div>
         </div>
 
         <!-- Subject 3: Cambridge Mathematics & Science -->
-        <div style="background: #FFFFFF; border-radius: 18px; border: 1px solid #E7E5E4; padding: 32px; margin-bottom: 24px; box-shadow: var(--shadow-sm);">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-            <span style="font-size: 28px;">🔬</span>
-            <h2 style="font-size: 22px; color: #1B365D;">3. ケンブリッジ算数・理科 (Cambridge Mathematics &amp; Science)</h2>
+        <div style="background: #FFFFFF; border-radius: 18px; border: 1px solid #E7E5E4; padding: 32px; margin-bottom: 24px; box-shadow: var(--shadow-sm); border-left: 6px solid #1B365D;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span class="badge-flag-en"><span class="flag-icon">🇬🇧</span> STEM</span>
+              <h2 style="font-size: 22px; color: #1B365D; margin: 0;">3. ケンブリッジ算数・理科 (Cambridge Mathematics &amp; Science)</h2>
+            </div>
+            <span style="font-size: 12px; font-weight: 700; color: #1B365D; background: #EEF4FC; padding: 4px 10px; border-radius: 999px;">探究型学習 (Inquiry-based)</span>
           </div>
-          <p style="font-size: 15px; color: #44403C; line-height: 1.8;">
+          <p style="font-size: 15px; color: #44403C; line-height: 1.8; margin-bottom: 16px;">
             ケンブリッジプログラムの特長は「公式の暗記」ではなく「なぜそうなるのかを論理的に証明・探究すること」。身近な現象を観察し、仮説を立て、実験を行って結果を英語でプレゼンテーションする探究学習（Inquiry-based learning）を実践します。
           </p>
+          <div style="border-radius: 12px; overflow: hidden; border: 1px solid #E2E8F0; margin-top: 16px;">
+            <img src="images/classroom-digital.jpg" alt="デジタル機器とプロジェクターを用いた探究授業風景" style="width: 100%; height: 200px; object-fit: cover; display: block;" loading="lazy">
+            <div style="padding: 10px; font-size: 12px; color: #64748B; background: #FAFAF9;">タブレットや大型プロジェクターを活用したインタラクティブ探究授業</div>
+          </div>
         </div>
 
         <!-- Subject 4: Computing & ICT -->
         <div style="background: #FFFFFF; border-radius: 18px; border: 1px solid #E7E5E4; padding: 32px; margin-bottom: 24px; box-shadow: var(--shadow-sm);">
           <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
             <span style="font-size: 28px;">💻</span>
-            <h2 style="font-size: 22px; color: #1B365D;">4. コンピュータサイエンス・プログラミング (Computing &amp; ICT)</h2>
+            <h2 style="font-size: 22px; color: #1B365D; margin: 0;">4. コンピュータサイエンス・プログラミング (Computing &amp; ICT)</h2>
           </div>
           <p style="font-size: 15px; color: #44403C; line-height: 1.8;">
             タイピングの基礎から、Scratch等のブロックプログラミング、ロボット教材を使ったアルゴリズム学習、インターネットリテラシー・情報モラル教育を実施。未来のデジタル社会で主導的な役割を担う土台を築きます。
@@ -122,11 +171,15 @@
         <div style="background: #FFFFFF; border-radius: 18px; border: 1px solid #E7E5E4; padding: 32px; margin-bottom: 40px; box-shadow: var(--shadow-sm);">
           <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
             <span style="font-size: 28px;">🌍</span>
-            <h2 style="font-size: 22px; color: #1B365D;">5. 選択外国語：フランス語・アラビア語 (Optional Modern Languages)</h2>
+            <h2 style="font-size: 22px; color: #1B365D; margin: 0;">5. 選択外国語：フランス語・アラビア語 (Optional Modern Languages)</h2>
           </div>
-          <p style="font-size: 15px; color: #44403C; line-height: 1.8;">
+          <p style="font-size: 15px; color: #44403C; line-height: 1.8; margin-bottom: 16px;">
             Grade 6（中等部）以降は、国際連合の公用語でもあるフランス語やアラビア語を選択可能。英語・日本語に加え、第3の言語に触れることで多文化への敬意と複眼的なグローバル視野を育みます。
           </p>
+          <div style="border-radius: 12px; overflow: hidden; border: 1px solid #E2E8F0; margin-top: 16px;">
+            <img src="images/event-kanagawa-expo.png" alt="かながわ国際交流展での発表" style="width: 100%; height: 200px; object-fit: cover; display: block;" loading="lazy">
+            <div style="padding: 10px; font-size: 12px; color: #64748B; background: #FAFAF9;">神奈川県の国際交流イベントで生徒たちが多文化研究を発表</div>
+          </div>
         </div>
 
         <!-- Daily Schedule Preview -->
