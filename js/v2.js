@@ -99,6 +99,20 @@
     matchMedia('(min-width: 900px)').addEventListener('change', (m) => { if (m.matches && drawer.open) drawer.close(); });
   }
 
+  /* ------------------------------------------------------------------ 2b · ※ note sheet */
+  const sheet = $('#ast-sheet');
+  if (sheet) {
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('.ast')) { sheet.showModal(); document.body.style.overflow = 'hidden'; }
+    });
+    $('#ast-close').addEventListener('click', () => sheet.close());
+    sheet.addEventListener('close', () => { document.body.style.overflow = ''; });
+    sheet.addEventListener('click', (e) => {
+      if (e.target === sheet) { sheet.close(); return; }                     // backdrop tap
+      if (e.target.closest('a[href^="#"]')) { document.body.style.overflow = ''; sheet.close(); }
+    });
+  }
+
   /* ------------------------------------------------------------------ 3 · Tabs */
   $$('[data-tabs]').forEach((list) => {
     const tabs = $$('[role="tab"]', list);
@@ -154,6 +168,10 @@
       entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
     }, { rootMargin: '0px 0px -8% 0px' });
     reveals.forEach((el) => io.observe(el));
+    // Safety net: if the observer is slow (backgrounded tab, busy device), show whatever is already on screen.
+    setTimeout(() => {
+      reveals.forEach((el) => { if (el.getBoundingClientRect().top < innerHeight) el.classList.add('in'); });
+    }, 1200);
   } else {
     reveals.forEach((el) => el.classList.add('in'));
   }
@@ -284,8 +302,24 @@
   /* ------------------------------------------------------------------ 10 · Action bar, footer, placeholders */
   const bar = $('#action-bar');
   if (bar && 'IntersectionObserver' in window) {
-    let heroOut = false; let inBooking = false; let inFooter = false; let typing = false;
-    const sync = () => bar.classList.toggle('is-visible', heroOut && !inBooking && !inFooter && !typing);
+    let heroOut = false; let inBooking = false; let inFooter = false; let typing = false; let tabsPinned = false;
+    const sync = () => bar.classList.toggle('is-visible', heroOut && !inBooking && !inFooter && !typing && !tabsPinned);
+
+    // While the stage tabs are pinned under the header, the bottom bar steps aside:
+    // header + tabs + bar together would take ~27% of a phone screen.
+    const tabs = $('.seg-sticky');
+    const programmes = $('.programmes');
+    const headerH = () => $('.site-header').offsetHeight;
+    const checkPinned = () => {
+      const t = tabs.getBoundingClientRect();
+      const p = programmes.getBoundingClientRect();
+      const now = getComputedStyle(tabs).position === 'sticky' && t.top <= headerH() + 1 && p.bottom > t.height + headerH() + 24;
+      if (now !== tabsPinned) { tabsPinned = now; sync(); }
+    };
+    let pinRaf = 0;
+    addEventListener('scroll', () => { cancelAnimationFrame(pinRaf); pinRaf = requestAnimationFrame(checkPinned); }, { passive: true });
+    addEventListener('resize', checkPinned);
+    checkPinned();
     new IntersectionObserver(([e]) => { heroOut = !e.isIntersecting && e.boundingClientRect.top < 0; sync(); }).observe($('#hero-cta'));
     new IntersectionObserver(([e]) => { inBooking = e.isIntersecting; sync(); }, { threshold: 0.08 }).observe($('#booking'));
     new IntersectionObserver(([e]) => { inFooter = e.isIntersecting; sync(); }).observe($('.site-footer'));
@@ -306,9 +340,13 @@
     try { sessionStorage.setItem('bis_ph', on ? 'on' : 'off'); } catch (e) { /* ignore */ }
   };
   if (phBtn) {
-    const q = new URLSearchParams(location.search).get('ph');
-    let stored = null;
-    try { stored = sessionStorage.getItem('bis_ph'); } catch (e) { /* ignore */ }
+    const params = new URLSearchParams(location.search);
+    const q = params.get('ph');
+    let stored = null; let dev = false;
+    try { stored = sessionStorage.getItem('bis_ph'); dev = sessionStorage.getItem('bis_dev') === '1'; } catch (e) { /* ignore */ }
+    // The toggle is a reviewer tool: it only appears after opening the page with ?ph=on or ?ph=off.
+    if (params.has('ph')) { dev = true; try { sessionStorage.setItem('bis_dev', '1'); } catch (e) { /* ignore */ } }
+    phBtn.hidden = !dev;
     setPh((q || stored || 'on') !== 'off');
     phBtn.addEventListener('click', () => setPh(root.dataset.ph !== 'on'));
   }
