@@ -1,0 +1,39 @@
+<div class="calc-card">
+          <h3 class="calc-title"><svg class="icon" aria-hidden="true"><use href="#i-calc"/></svg><span data-en="Quick fee calculator">かんたん学費シミュレーター</span></h3>
+
+          <div class="field">
+            <label for="calc-age" data-en="Your child's stage">お子様の学年</label>
+            <div class="select-wrap">
+              <select id="calc-age" class="control">
+                <option value="preprimary" data-en="Pre-Primary (ages 3–5)">幼児部（3歳〜5歳）</option>
+                <option value="primary" data-en="Primary, Grades 1–5">小学部（小1〜小5）</option>
+                <option value="secondary" data-en="Secondary, Grades 6–7">中等部（小6〜中1）</option>
+                <option value="advanced" data-en="Advanced, Pre-IGCSE to A-Level">高等部（Pre-IGCSE〜A-Level）</option>
+              </select>
+              <svg class="icon" aria-hidden="true"><use href="#i-chev-down"/></svg>
+            </div>
+          </div>
+          <div class="field">
+            <label for="calc-sub" data-en="Subsidy type">適用する助成</label>
+            <div class="select-wrap">
+              <select id="calc-sub" class="control">
+                <option value="mushouka" data-en="Childcare subsidy (−¥37,000)">−37,000円　幼保無償化</option>
+                <option value="tayona" data-en="Additional support (−¥20,000)">−20,000円　多様な支援</option>
+                <option value="corporate" data-en="Corporate plan, bus included (−¥51,000)">−51,000円　企業主導型・法人支援（バス込）</option>
+                <option value="none" data-en="No subsidy">助成なし（全額自己負担）</option>
+              </select>
+              <svg class="icon" aria-hidden="true"><use href="#i-chev-down"/></svg>
+            </div>
+          </div>
+
+          <div class="calc-result" aria-live="polite">
+            <dl class="calc-lines">
+              <div><dt data-en="Monthly tuition">月額授業料</dt><dd id="calc-tuition">37,000円</dd></div>
+              <div><dt data-en="Subsidy">助成</dt><dd id="calc-subsidy" class="is-minus">−37,000円</dd></div>
+            </dl>
+            <p class="calc-net-label" data-en="Your monthly cost">保護者様の実質ご負担額（月額）</p>
+            <p class="calc-net"><span id="calc-net">0</span><span class="calc-net-unit" data-en="/ month">円／月</span></p>
+            <p class="calc-note" id="calc-note" hidden data-en="Subsidies apply to pre-primary classes only.">助成の対象は幼児部のみです。</p>
+            <p class="calc-note" id="calc-note-corp" hidden data-en="The corporate plan price includes the school bus within 5 km.">企業主導型・法人支援の金額は、5km圏内のスクールバス込みです。</p>
+          </div>
+        </div>

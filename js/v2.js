@@ -1,5 +1,5 @@
 /**
- * BIS JAPAN — v2 prototype behaviour (index-v2.html)
+ * BIS JAPAN — v2 prototype behaviour (shared by every v2 page; each block does nothing if its elements are absent)
  * Vanilla JS, no dependencies. Sections:
  *   1 i18n (JA default, EN via data-en*)   6 Calculator
  *   2 Menu drawer (native <dialog>)         7 Photo lightbox
@@ -68,8 +68,8 @@
     if (lang !== shown) swapContent(lang);
     $$('.lang-btn').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
     $$('a[data-keeplang]').forEach((a) => {
-      const base = a.getAttribute('data-href0');
-      a.setAttribute('href', `${base}${base.includes('?') ? '&' : '?'}lang=${lang}`);
+      const [path, hash = ''] = a.getAttribute('data-href0').split('#');      // ?lang= goes before any #section
+      a.setAttribute('href', `${path}${path.includes('?') ? '&' : '?'}lang=${lang}${hash && `#${hash}`}`);
     });
     try {
       localStorage.setItem(LANG_KEY, lang);
@@ -187,10 +187,12 @@
     if (!ageSel || !subSel) return;
     const stage = ageSel.value;
     const pre = stage === 'preprimary';
-    const tuition = stage === 'primary' ? 35000 : 37000;
-    const subsidy = pre ? ({ mushouka: 37000, tayona: 20000, corporate: 37000, none: 0 }[subSel.value] || 0) : 0;
+    const corporate = pre && subSel.value === 'corporate';           // corporate plan: ¥51,000 list price includes the 5 km school bus, fully reimbursed
+    const tuition = corporate ? 51000 : ({ primary: 35000, advanced: 40000 }[stage] || 37000);
+    const subsidy = pre ? ({ mushouka: 37000, tayona: 20000, corporate: 51000, none: 0 }[subSel.value] || 0) : 0;
     subSel.disabled = !pre;
     $('#calc-note').hidden = pre;
+    $('#calc-note-corp').hidden = !corporate;
     $('#calc-tuition').textContent = yen(tuition);
     const s = $('#calc-subsidy');
     s.textContent = subsidy ? `−${yen(subsidy)}` : yen(0);
@@ -211,7 +213,8 @@
       moreBtn.parentElement.hidden = true;
     });
   }
-  if (lb) {
+  const lifeGrid = $('#life-grid');
+  if (lb && lifeGrid) {
     let list = [];
     let cur = 0;
     const show = (i) => {
@@ -225,10 +228,10 @@
       $('#lb-desc').textContent = en ? t.dataset.descEn : t.dataset.desc;
       $('#lb-count').textContent = `${cur + 1} / ${list.length}`;
     };
-    $('#life-grid').addEventListener('click', (e) => {
+    lifeGrid.addEventListener('click', (e) => {
       const tile = e.target.closest('.life-tile');
       if (!tile) return;
-      list = $$('.life-tile', $('#life-grid')).filter((t) => !t.closest('[hidden]'));
+      list = $$('.life-tile', lifeGrid).filter((t) => !t.closest('[hidden]'));
       lb.showModal();
       document.body.style.overflow = 'hidden';
       show(list.indexOf(tile));
@@ -307,27 +310,43 @@
   /* ------------------------------------------------------------------ 10 · Action bar, footer, placeholders */
   const bar = $('#action-bar');
   if (bar && 'IntersectionObserver' in window) {
-    let heroOut = false; let inBooking = false; let inFooter = false; let typing = false; let tabsPinned = false;
-    const sync = () => bar.classList.toggle('is-visible', heroOut && !inBooking && !inFooter && !typing && !tabsPinned);
+    let pastStart = false; let typing = false; let tabsPinned = false;
+    const covering = new Set();            // booking panels / the footer currently on screen: the bar would only repeat them
+    const sync = () => bar.classList.toggle('is-visible', pastStart && !covering.size && !typing && !tabsPinned);
 
-    // While the stage tabs are pinned under the header, the bottom bar steps aside:
+    // While the stage tabs are pinned under the header (home page), the bottom bar steps aside:
     // header + tabs + bar together would take ~27% of a phone screen.
     const tabs = $('.seg-sticky');
     const programmes = $('.programmes');
-    const headerH = () => $('.site-header').offsetHeight;
-    const checkPinned = () => {
-      const t = tabs.getBoundingClientRect();
-      const p = programmes.getBoundingClientRect();
-      const now = getComputedStyle(tabs).position === 'sticky' && t.top <= headerH() + 1 && p.bottom > t.height + headerH() + 24;
-      if (now !== tabsPinned) { tabsPinned = now; sync(); }
+    if (tabs && programmes) {
+      const headerH = () => $('.site-header').offsetHeight;
+      const checkPinned = () => {
+        const t = tabs.getBoundingClientRect();
+        const p = programmes.getBoundingClientRect();
+        const now = getComputedStyle(tabs).position === 'sticky' && t.top <= headerH() + 1 && p.bottom > t.height + headerH() + 24;
+        if (now !== tabsPinned) { tabsPinned = now; sync(); }
+      };
+      let pinRaf = 0;
+      addEventListener('scroll', () => { cancelAnimationFrame(pinRaf); pinRaf = requestAnimationFrame(checkPinned); }, { passive: true });
+      addEventListener('resize', checkPinned);
+      checkPinned();
+    }
+
+    // The bar appears once the page's first call to action has scrolled away: #hero-cta on the home page,
+    // [data-bar-start] on inner pages. It hides over #booking / [data-bar-hide] panels and the footer.
+    const start = $('#hero-cta') || $('[data-bar-start]');
+    if (start) new IntersectionObserver(([e]) => { pastStart = !e.isIntersecting && e.boundingClientRect.top < 0; sync(); }).observe(start);
+    else { pastStart = true; sync(); }
+    const watch = (els, options) => {
+      if (!els.length) return;
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) covering.add(e.target); else covering.delete(e.target); });
+        sync();
+      }, options);
+      els.forEach((el) => io.observe(el));
     };
-    let pinRaf = 0;
-    addEventListener('scroll', () => { cancelAnimationFrame(pinRaf); pinRaf = requestAnimationFrame(checkPinned); }, { passive: true });
-    addEventListener('resize', checkPinned);
-    checkPinned();
-    new IntersectionObserver(([e]) => { heroOut = !e.isIntersecting && e.boundingClientRect.top < 0; sync(); }).observe($('#hero-cta'));
-    new IntersectionObserver(([e]) => { inBooking = e.isIntersecting; sync(); }, { threshold: 0.08 }).observe($('#booking'));
-    new IntersectionObserver(([e]) => { inFooter = e.isIntersecting; sync(); }).observe($('.site-footer'));
+    watch($$('#booking, [data-bar-hide]'), { threshold: 0.08 });
+    watch($$('.site-footer'));
     document.addEventListener('focusin', (e) => { if (e.target.matches('input, textarea, select')) { typing = true; sync(); } });
     document.addEventListener('focusout', () => { setTimeout(() => { typing = document.activeElement?.matches?.('input, textarea, select') || false; sync(); }, 50); });
   }

@@ -1,0 +1,34 @@
+<a class="skip-link" href="#main" data-en="Skip to main content">メインコンテンツへスキップ</a>
+
+  <!-- ======================================================================
+       HEADER (56px · crest, wordmark, JA|EN toggle, menu)
+       ====================================================================== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index-v2.html" data-keeplang aria-label="BIS Japan">
+        <img src="images/crest.svg" alt="" width="52" height="47">
+        <span class="brand-name">BIS Japan</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="メイン" data-en-aria-label="Main">
+        <a {{to:about}} data-en="Why BIS">学校の特長</a>
+        <a {{to:curriculum}} data-en="Programmes">プログラム</a>
+        <a {{to:tuition}} data-en="Tuition">授業料</a>
+        <a {{to:access}} data-en="Access">アクセス</a>
+        <a {{to:faq}} data-en="FAQ">よくある質問</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="lang" role="group" aria-label="言語 / Language">
+          <button type="button" class="lang-btn" data-lang="ja" aria-pressed="true" lang="ja">日本語</button>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false" lang="en">EN</button>
+        </div>
+        <a class="btn btn-primary btn-sm header-cta" {{to:booking}}><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg><span data-en="Book a visit">見学予約</span></a>
+        <button type="button" class="icon-btn menu-btn" id="menu-open" aria-label="メニューを開く" data-en-aria-label="Open menu" aria-haspopup="dialog" aria-controls="nav-drawer">
+          <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  

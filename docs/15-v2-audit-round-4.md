@@ -61,7 +61,7 @@ The build is solid. It survived a stress test with much longer text, every contr
 
 **Verified:** no overflow or clipped text at 320 / 375 / 1024 / 1440 px (JA) and 320 px (EN); English mode has no Japanese left except the language names and decorative icon glyphs; Lighthouse on gzip hosting **Performance 90–91, Accessibility 100, Best Practices 100**, CLS 0.
 
-**Not done (still open from this round):** #6 no-JS fallback, #7 English suggestion bar, #8 tracking hooks, #9 inner pages in v2, #10 font timing on the real URL.
+**Not done (still open from this round):** #6 no-JS fallback, #7 English suggestion bar, #8 tracking hooks, #9 inner pages in v2 (**in progress — Tuition page and the shared build are done, see [docs/16](16-v2-inner-pages-tuition.md)**), #10 font timing on the real URL.
 
 ## Recommended order (original)
 

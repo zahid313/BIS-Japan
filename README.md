@@ -88,6 +88,23 @@ npx serve .
 
 Then open `http://localhost:8089` in your web browser.
 
+### The v2 redesign (work in progress)
+
+The light-theme, mobile-first redesign lives beside the live site as `index-v2.html`, `tuition-v2.html`, … (all `noindex`) and is styled by `css/v2.css` + `js/v2.js`. Those HTML files are **generated**: the header, menu, footer and bottom bar are shared, so edit the sources in `src/v2/` and rebuild.
+
+```bash
+node tools/build-v2.js          # rebuild every v2 page (no dependencies, Node 18+)
+node tools/build-v2.js --check  # fail if a built page is out of date with src/v2
+```
+
+| Where | What |
+|---|---|
+| `src/v2/pages/*.html` | One file per page: a `<!--meta {json} -->` block (title, description, share-preview text) followed by its `<main>` |
+| `src/v2/partials/*.html` | Shared chrome (`head`, `header`, `footer`, `drawer`, `action-bar`, …) and reusable components (`calculator`) |
+| `tools/build-v2.js` | Assembles pages, resolves `{{to:key}}` links (keeps `?lang=`), builds the headline-font subset and cache-busting hashes |
+
+Plan and audits: `docs/12`–`docs/16`. The built files are committed, because GitHub Pages serves the repository root as-is.
+
 ---
 
 ## 📜 License & Copyright
