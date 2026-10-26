@@ -1,0 +1,95 @@
+<!--meta
+{
+  "file": "contact-v2.html",
+  "launchFile": "contact.html",
+  "key": "contact",
+  "title": "お問い合わせ・無料体験予約｜ブリティッシュ・インターナショナル・スクール",
+  "titleEn": "Contact and Free Trial Booking | British International School Japan",
+  "description": "BIS Japanへのお問い合わせ、無料体験レッスン・学校見学のご予約。公式LINE、お電話（046-259-9108）、メール、予約フォームから受け付けています。授業料や無償化のご相談も歓迎です。",
+  "ogTitle": "お問い合わせ・無料体験予約｜ブリティッシュ・インターナショナル・スクール",
+  "ogDescription": "LINE・お電話・メール・予約フォームで受付中。無料体験レッスンと学校見学のご予約はこちらから。",
+  "ogAlt": "BIS Japan — お問い合わせ・無料体験予約"
+}
+-->
+<main id="main" tabindex="-1">
+
+    <!-- ====================================================================
+         1 · PAGE HERO — short on purpose: the form is one tap away
+         ==================================================================== -->
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="container">
+        <nav class="crumbs" aria-label="現在のページ" data-en-aria-label="Breadcrumb">
+          <ol>
+            <li><a {{to:home}} data-en="Home">ホーム</a></li>
+            <li aria-current="page" data-en="Contact">お問い合わせ</li>
+          </ol>
+        </nav>
+
+        <p class="eyebrow" data-en="Contact">お問い合わせ</p>
+        <h1 id="page-title" data-en="Contact us <span class='nb'>or book a free trial</span>"><span class="nb">お問い合わせ・</span><span class="nb">無料体験予約</span></h1>
+        <p class="lead" data-en="Free trial lessons, school visits, questions about tuition and the subsidy — please ask us anything. LINE, phone, e-mail and the booking form are all open."><span class="nb">無料体験レッスン、学校見学、</span><span class="nb">授業料や無償化制度の</span><span class="nb">ご相談など、</span><span class="nb">どうぞお気軽に</span><span class="nb">お問い合わせください。</span></p>
+
+        <ul class="facts">
+          <li><strong class="fact-num" data-en="Within 24 hours">24時間以内</strong><span class="fact-label" data-en="After you send the form, our staff contact you to confirm">フォームを送信後、担当者より確認のご連絡を差し上げます</span></li>
+          <li><strong class="fact-num" data-en="Mon–Fri 9:00–18:00">平日 9:00〜18:00</strong><span class="fact-label" data-en="Phone hours (e-mail is open around the clock)">お電話の受付時間です（メールは24時間受付）</span></li>
+          <li><strong class="fact-num" data-en="No pressure">無理な勧誘なし</strong><span class="fact-label" data-en="We never make pushy sales calls after a visit">見学後の強引な勧誘やセールス電話は一切行いません</span></li>
+        </ul>
+
+        <div class="page-cta" data-bar-start>
+          <a class="btn btn-primary btn-lg" href="#booking">
+            <svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>
+            <span data-en="Go to the booking form">予約フォームへ</span>
+          </a>
+          <a class="btn btn-ghost btn-lg" href="#info">
+            <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
+            <span data-en="E-mail &amp; address">メール・所在地</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    {{include:booking-section}}
+
+    <!-- ====================================================================
+         3 · CONTACT DETAILS — address, phone, fax, e-mail, hours, privacy
+         ==================================================================== -->
+    <section class="section bg-cream" id="info" aria-labelledby="info-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" data-en="Contact details">連絡先</p>
+          <h2 id="info-title" data-en="Other ways <span class='nb'>to reach us</span>"><span class="nb">そのほかの</span><span class="nb">連絡方法</span></h2>
+        </div>
+
+        <div class="panels">
+          <div class="info-panel">
+            <h3 data-en="British International School, Japan">ブリティッシュ・インターナショナル・スクール</h3>
+            <dl class="addr">
+              <div><dt data-en="Address">住所</dt><dd data-en="243-0417 Hongo 4786, Ebina-shi, Kanagawa">〒243-0417 神奈川県海老名市本郷4786</dd></div>
+              <div><dt data-en="Phone">電話</dt><dd><a class="tel-link tabular" href="tel:046-259-9108">046-259-9108</a></dd></div>
+              <div><dt data-en="Fax">FAX</dt><dd class="tabular">046-259-9109</dd></div>
+              <div><dt data-en="E-mail">メール</dt><dd><a class="mail-link" href="mailto:{{email}}">{{email}}</a><span class="addr-note" data-en="Open 24 hours">24時間受付</span></dd></div>
+              <div><dt data-en="Hours">受付時間</dt><dd data-en="Phone: Mon–Fri 9:00–18:00">お電話：平日 9:00〜18:00</dd></div>
+            </dl>
+            <a class="text-link" {{to:access}}><span data-en="Map, train &amp; school bus">地図・行き方・スクールバス</span><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+          </div>
+
+          <div class="info-panel">
+            <h3 data-en="Your privacy">個人情報の取り扱い</h3>
+            <p data-en="The details you enter are used only to arrange your trial lesson or visit. We never pass them to third parties.">ご入力いただいた情報は、体験レッスンおよび見学日程の調整連絡にのみ使用し、第三者に提供することはありません。</p>
+            <h3 class="panel-sub" data-en="Before you come">ご来校の前に</h3>
+            <p data-en="Visit tips and what to bring are in the booking section above, and every question about fees is answered on the tuition page.">お持ち物などのご案内は、上の予約欄の「ご来校時のお願い・お持ち物」にあります。費用についての疑問は、授業料のページでお答えしています。</p>
+            <a class="text-link" {{to:tuition}}><span data-en="Tuition &amp; subsidy">授業料と無償化を見る</span><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+          </div>
+        </div>
+
+        <h3 class="sub-title" data-en="While you’re here">あわせてご覧ください</h3>
+        <ul class="link-cards">
+          <li><a class="alt-card" {{to:curriculum}}><span class="alt-ico"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg></span><span class="alt-text"><strong data-en="Curriculum">カリキュラム</strong><small data-en="English, Japanese and inquiry learning">英語・日本語・探究の学び</small></span><svg class="icon alt-go" aria-hidden="true"><use href="#i-chev-right"/></svg></a></li>
+          <li><a class="alt-card" {{to:tuition}}><span class="alt-ico"><svg class="icon" aria-hidden="true"><use href="#i-calc"/></svg></span><span class="alt-text"><strong data-en="Tuition &amp; subsidy">授業料と無償化</strong><small data-en="Fees, calculator and how to apply">料金・シミュレーター・手続き</small></span><svg class="icon alt-go" aria-hidden="true"><use href="#i-chev-right"/></svg></a></li>
+          <li><a class="alt-card" {{to:access}}><span class="alt-ico"><svg class="icon" aria-hidden="true"><use href="#i-bus"/></svg></span><span class="alt-text"><strong data-en="Access &amp; school bus">アクセスとスクールバス</strong><small data-en="Map, train, car and bus area">地図・電車・お車・運行エリア</small></span><svg class="icon alt-go" aria-hidden="true"><use href="#i-chev-right"/></svg></a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+

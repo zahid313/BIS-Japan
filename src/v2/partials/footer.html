@@ -4,7 +4,7 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-brand">
-        <a class="brand" href="index-v2.html" data-keeplang aria-label="BIS Japan">
+        <a class="brand" {{to:home}} aria-label="BIS Japan">
           <img src="images/crest.svg" alt="" width="64" height="58">
           <span class="brand-name">BIS Japan</span>
         </a>
@@ -16,24 +16,25 @@
         <p><strong data-en="British International School, Japan">ブリティッシュ・インターナショナル・スクール</strong></p>
         <p>〒243-0417 <span data-en="Hongo 4786, Ebina, Kanagawa">神奈川県海老名市本郷4786</span></p>
         <p><a class="tel-link tabular" href="tel:046-259-9108"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>046-259-9108</a></p>
-        <p><a href="mailto:info@bisjapan.org"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>info@bisjapan.org</a></p>
+        <p><a href="mailto:{{email}}"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>{{email}}</a></p>
       </address>
 
       <div class="footer-groups">
         <details class="footer-group">
-          <summary><span data-en="About the school">学校案内</span><svg class="icon" aria-hidden="true"><use href="#i-chev-down"/></svg></summary>
+          <summary><span data-en="The school">学校について</span><svg class="icon" aria-hidden="true"><use href="#i-chev-down"/></svg></summary>
           <ul>
-            <li><a {{to:about}} data-en="Why BIS">学校の特長</a></li>
-            <li><a {{to:curriculum}} data-en="Programmes">プログラム</a></li>
+            <li><a {{to:about}} data-en="About">学校案内</a></li>
+            <li><a {{to:curriculum}} data-en="Curriculum">カリキュラム</a></li>
             <li><a {{to:tuition}} data-en="Tuition">授業料</a></li>
             <li><a {{to:teachers}} data-en="Teachers &amp; staff">講師・スタッフ</a></li>
           </ul>
         </details>
         <details class="footer-group">
-          <summary><span data-en="Visit &amp; support">アクセス＆サポート</span><svg class="icon" aria-hidden="true"><use href="#i-chev-down"/></svg></summary>
+          <summary><span data-en="Visit &amp; contact">見学・お問い合わせ</span><svg class="icon" aria-hidden="true"><use href="#i-chev-down"/></svg></summary>
           <ul>
             <li><a {{to:access}} data-en="Access">アクセス</a></li>
             <li><a {{to:booking}} data-en="Book a free trial &amp; visit">無料体験・見学を予約</a></li>
+            <li><a {{to:contact}} data-en="Contact">お問い合わせ</a></li>
             <li><a {{to:faq}} data-en="FAQ">よくある質問</a></li>
             <li><a href="https://line.me" target="_blank" rel="noopener noreferrer"><span data-en="Official LINE">公式LINE相談</span><span class="sr-only" data-en=" (opens in a new tab)">（新しいタブで開きます）</span></a></li>
           </ul>

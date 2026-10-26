@@ -1,0 +1,40 @@
+<!--meta
+{
+  "file": "404.html",
+  "launchFile": "404.html",
+  "key": "notfound",
+  "layout": "bare",
+  "noindex": true,
+  "sitemap": false,
+  "title": "ページが見つかりません｜ブリティッシュ・インターナショナル・スクール",
+  "titleEn": "Page not found | British International School Japan",
+  "description": "お探しのページは見つかりませんでした。BIS Japanのトップページへお戻りください。",
+  "ogTitle": "ページが見つかりません｜ブリティッシュ・インターナショナル・スクール",
+  "ogDescription": "お探しのページは見つかりませんでした。",
+  "ogAlt": "BIS Japan"
+}
+-->
+<main id="main" class="nf" tabindex="-1">
+    <div class="container nf-inner">
+      <a class="brand" {{to:home}} aria-label="BIS Japan">
+        <img src="images/crest.svg" alt="" width="64" height="58">
+        <span class="brand-name">BIS Japan</span>
+      </a>
+
+      <p class="eyebrow" data-en="Error 404">エラー 404</p>
+      <h1 data-en="We can’t find <span class='nb'>that page</span>"><span class="nb">お探しのページが</span><span class="nb">見つかりません</span></h1>
+      <p class="lead" data-en="The address may have changed, or the page may have moved. Please go back to the home page, or ask us and we will help.">アドレスが変わったか、ページが移動した可能性があります。トップページへお戻りいただくか、お気軽にお問い合わせください。</p>
+
+      <div class="nf-actions">
+        <a class="btn btn-primary btn-lg" {{to:home}}>
+          <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+          <span data-en="Back to the home page">トップページへ戻る</span>
+        </a>
+        <a class="btn btn-ghost btn-lg" {{to:contact}}>
+          <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
+          <span data-en="Contact us">お問い合わせ</span>
+        </a>
+      </div>
+    </div>
+  </main>
+

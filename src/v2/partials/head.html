@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <!-- PROTOTYPE: light-theme mobile-first redesign (docs/12-redesign-roadmap.md). Not for indexing. -->
-  <meta name="robots" content="noindex, nofollow">
-  <meta name="theme-color" content="#ffffff">
+{{baseTag}}{{robots}}  <meta name="theme-color" content="#ffffff">
   <!-- Light-only design: stops Android "force dark" / dark-mode extensions from inverting the page. -->
   <meta name="color-scheme" content="light">
   <title data-en="{{titleEn}}">{{title}}</title>
@@ -32,14 +30,7 @@
   <meta property="og:image:alt" content="{{ogAlt}}">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- LAUNCH CHECKLIST: when this page becomes the real home page, remove the noindex tag above and enable the two items below.
-       (Kept as a comment so the prototype is not indexed with a canonical pointing at the live domain.)
-  <link rel="canonical" href="{{ogUrl}}">
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"School","name":"British International School, Japan","alternateName":"BIS Japan","url":"https://bisjapan.org/","logo":"https://bisjapan.org/images/crest.svg","image":"https://bisjapan.org/images/og-image.jpg","telephone":"+81-46-259-9108","foundingDate":"2007","address":{"@type":"PostalAddress","postalCode":"243-0417","addressCountry":"JP","addressRegion":"神奈川県","addressLocality":"海老名市","streetAddress":"本郷4786"}}
-  </script>
-  -->
-
+{{seo}}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- Body text uses the phone's own Japanese font (Hiragino / Noto CJK / Yu Gothic): 0 bytes. Only the serif HEADLINE face is a web font, subset to the characters the headlines use (via Google Fonts text=). Production: self-host a proper subset. -->

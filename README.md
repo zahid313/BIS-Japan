@@ -30,80 +30,63 @@ The website is engineered to solve the primary local awareness challenge: introd
 
 ## 💻 Tech Stack & Architecture
 
-- **Zero-Framework Web Application:** Pure Semantic HTML5, Vanilla CSS custom properties, and Vanilla ES6+ JavaScript for maximum performance, accessibility, and zero-dependency maintenance.
-- **Bilingual Engine:** Instant client-side language switching between Japanese and English (`data-ja` / `data-en`) with `localStorage` state persistence.
-- **Interactive UI Components:**
-  - **Prestige Stats Strip:** Floating metrics card adapted from top British school sites.
-  - **Interactive Stage Tabs:** Tabbed navigation between Pre-Primary, Primary, and Secondary stages with smooth transitions and transparent tuition cards.
-  - **Government Subsidy Calculator:** Real-time out-of-pocket estimator based on grade level and municipal subsidy eligibility.
-  - **School Tour Booking Modal:** Form validation and accessible confirmation dialogs.
+- **Static and framework-free:** semantic HTML5, vanilla CSS custom properties and vanilla JavaScript. Light theme, mobile first, Japanese by default with an English switch (`data-en` text swapped on demand, choice remembered in `localStorage`).
+- **Built from shared parts:** the header, menu, footer and bottom action bar are written once in `src/v2/partials`; a small dependency-free script (`tools/build-v2.js`) assembles the pages. The generated HTML is committed, so GitHub Pages serves the repository root as-is.
+- **Interactive components:** stage tabs, fee calculator (tuition by stage and subsidy type), photo lightbox, tap-to-load map, booking form with inline validation, bottom Call / LINE / Book bar, note sheet and menu drawer.
 
 ---
 
 ## 📂 Repository Structure
 
 ```text
-├── index.html            # Main landing page with hero, stats strip, stage tabs, calculator & booking
-├── about.html            # School history, 8 core objectives, leadership message & official crest
-├── curriculum.html       # Cambridge syllabus, daily Kokugo, weekly timetable & subject outlines
-├── admissions.html       # Eligibility criteria, municipal subsidy (新2号認定) guide & fee tables
-├── access.html           # Campus map, public transit directions & 5km bus coverage
-├── contact.html          # Contact channels, visiting hours & inquiry form
-├── css/
-│   └── style.css         # Complete design system tokens, typography, utilities & responsive styles
-├── js/
-│   └── main.js           # Bilingual switcher, stage tabs, subsidy calculator & modal handlers
-├── images/
-│   └── crest.png         # Official BIS Japan crest ("Strive Believe Achieve")
-├── docs/                 # UX research, competitive audits, and accessibility documentation
-│   ├── 00-skill-map.md
-│   ├── 01-competitive-research.md
-│   ├── 02-heuristic-audit.md
-│   ├── 03-gap-analysis.md
-│   ├── 04-ia-sitemap.md
-│   ├── 05-content-map-ja-en.md
-│   ├── 06-copy-drafts.md
-│   ├── 07-qa-ux-audit.md
-│   ├── 08-lighthouse-performance.md
-│   ├── 09-wcag-accessibility-audit.md
-│   └── 10-deploy-analytics-plan.md
-└── design/               # Design tokens (colors, typography, component specs)
-    ├── components/
-    └── tokens/
+├── index.html            # Home (generated)
+├── about.html            # School guide: story, 8 goals, campus, safety (generated)
+├── curriculum.html       # Six pillars, stage by stage, a typical day (generated)
+├── admissions.html       # Tuition, subsidy guide, calculator, admissions flow (generated)
+├── access.html           # Map, train / bus / car, school-bus area (generated)
+├── contact.html          # Booking form and contact details (generated)
+├── 404.html              # Not-found page (generated)
+├── robots.txt, sitemap.xml, site.webmanifest   # generated in launch mode
+├── src/v2/               # SOURCES: edit these, then run the build
+│   ├── site.json         #   launch switch, domain, phone, e-mail
+│   ├── pages/            #   one file per page (meta block + <main>)
+│   └── partials/         #   shared header, footer, menu, calculator, booking form ...
+├── tools/build-v2.js     # the page builder (no dependencies)
+├── css/v2.css, js/v2.js  # design system and behaviour for every page
+├── css/style.css, js/main.js   # LEGACY (v1 site): no longer referenced, safe to delete
+├── images/               # crest and photos (images/v2 = optimised WebP used by the pages)
+├── docs/                 # research, audits and the redesign plan (12-17 cover the v2 work)
+└── design/               # design tokens and component specs (v1)
 ```
 
 ---
 
 ## 🚀 Running Locally
 
-No build tools or package managers required. Simply start any local HTTP server:
+Any static server works:
 
 ```bash
-# Using Python
-python3 -m http.server 8089
-
-# Using Node.js (npx)
-npx serve .
+python3 -m http.server 8089     # or: npx serve .
 ```
 
-Then open `http://localhost:8089` in your web browser.
+Then open `http://localhost:8089`.
 
-### The v2 redesign (work in progress)
+### Editing pages
 
-The light-theme, mobile-first redesign lives beside the live site as `index-v2.html`, `tuition-v2.html`, … (all `noindex`) and is styled by `css/v2.css` + `js/v2.js`. Those HTML files are **generated**: the header, menu, footer and bottom bar are shared, so edit the sources in `src/v2/` and rebuild.
+The `.html` files in the repository root are **generated**. Edit `src/v2/pages/*.html` (content) or `src/v2/partials/*.html` (shared parts), then rebuild:
 
 ```bash
-node tools/build-v2.js          # rebuild every v2 page (no dependencies, Node 18+)
+node tools/build-v2.js          # rebuild every page (Node 18+, no packages to install)
 node tools/build-v2.js --check  # fail if a built page is out of date with src/v2
 ```
 
 | Where | What |
 |---|---|
-| `src/v2/pages/*.html` | One file per page: a `<!--meta {json} -->` block (title, description, share-preview text) followed by its `<main>` |
-| `src/v2/partials/*.html` | Shared chrome (`head`, `header`, `footer`, `drawer`, `action-bar`, …) and reusable components (`calculator`) |
-| `tools/build-v2.js` | Assembles pages, resolves `{{to:key}}` links (keeps `?lang=`), builds the headline-font subset and cache-busting hashes |
+| `src/v2/pages/*.html` | A `<!--meta {json} -->` block (title, description, share-preview text, file names) followed by the page's `<main>` |
+| `src/v2/partials/*.html` | Shared chrome (`head`, `header`, `footer`, `drawer`, `action-bar`, ...) and components (`calculator`, `booking-section`, ...) |
+| `src/v2/site.json` | `launch` switch, domain, phone and e-mail used across the site |
 
-Plan and audits: `docs/12`–`docs/16`. The built files are committed, because GitHub Pages serves the repository root as-is.
+Links between pages are written as `{{to:tuition}}`-style tokens, so every menu, footer and button stays consistent and keeps the chosen language. Placeholder content is marked `data-ph` and shows a dashed 仮 chip until real content replaces it. Plan, audits and decisions: `docs/12` to `docs/17`.
 
 ---
 
