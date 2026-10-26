@@ -351,6 +351,15 @@
     phBtn.addEventListener('click', () => setPh(root.dataset.ph !== 'on'));
   }
 
+  /* ------------------------------------------------------------------ header height → CSS variable */
+  // With large text the header wraps to two rows; sticky tabs and anchor offsets must follow its real height.
+  const siteHeader = $('.site-header');
+  if (siteHeader && 'ResizeObserver' in window) {
+    const sync = () => root.style.setProperty('--header-live', `${siteHeader.getBoundingClientRect().height}px`);
+    new ResizeObserver(sync).observe(siteHeader);
+    sync();
+  }
+
   /* ------------------------------------------------------------------ boot */
   $$('a[data-keeplang]').forEach((a) => a.setAttribute('data-href0', a.getAttribute('href')));
   setLang(readLang());
