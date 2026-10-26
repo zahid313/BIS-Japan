@@ -181,7 +181,8 @@
   /* ------------------------------------------------------------------ 6 · Calculator */
   const ageSel = $('#calc-age');
   const subSel = $('#calc-sub');
-  const yen = (n) => `¥${n.toLocaleString('ja-JP')}`;
+  // Japanese pages write money as 37,000円; English pages as ¥37,000 (see docs/15 style guide).
+  const yen = (n) => (lang === 'en' ? `¥${n.toLocaleString('en-US')}` : `${n.toLocaleString('ja-JP')}円`);
   function calc() {
     if (!ageSel || !subSel) return;
     const stage = ageSel.value;
@@ -194,7 +195,9 @@
     const s = $('#calc-subsidy');
     s.textContent = subsidy ? `−${yen(subsidy)}` : yen(0);
     s.classList.toggle('is-minus', subsidy > 0);
-    $('#calc-net').textContent = yen(Math.max(0, tuition - subsidy));
+    const net = Math.max(0, tuition - subsidy);
+    // Japanese: big number + a separate small "円／月" unit; English: "¥0" + "/ month"
+    $('#calc-net').textContent = lang === 'en' ? yen(net) : net.toLocaleString('ja-JP');
   }
   if (ageSel) { ageSel.addEventListener('change', calc); subSel.addEventListener('change', calc); }
 

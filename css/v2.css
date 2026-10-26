@@ -318,7 +318,8 @@ textarea.control { resize: vertical; min-height: 96px; }
 
 .sub-title { margin: 32px 0 12px; font-size: 1.0625rem; }
 .fee-list { display: grid; gap: 10px; }
-.fee-row { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 14px 16px; border: 1px solid var(--line); border-radius: var(--r-md); background: var(--cream); }
+.stage-age { display: block; }                                   /* the age sits on its own line under the grade names */
+.fee-row { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 4px 12px; padding: 14px 16px; border: 1px solid var(--line); border-radius: var(--r-md); background: var(--cream); }
 .fee-stage strong { display: block; font-size: 1.0625rem; color: var(--navy-900); }
 .fee-stage span { font-size: .8125rem; color: var(--muted); line-height: 1.5; }
 .fee-amount { text-align: right; }
@@ -493,6 +494,20 @@ html[data-ph="on"] .routes[data-ph]::after, html[data-ph="on"] .faq-list[data-ph
 html[data-ph="on"] .form-card[data-ph]::after { top: -12px; right: 16px; }
 html[data-ph="on"] .person-card[data-ph]::after { top: 24px; right: auto; left: 24px; }
 html[data-ph="on"] .voice-card[data-ph]::after { top: auto; bottom: 14px; right: 14px; }
+
+/* ---------- Touch feedback ----------
+   The browser's grey/blue tap flash is replaced by our own pressed states on every tappable thing. */
+a, button, summary, label, select, [role="tab"] { -webkit-tap-highlight-color: transparent; }
+a, button, summary, [role="tab"] { touch-action: manipulation; }          /* no double-tap-zoom delay */
+.seg-btn, .lang-btn, .icon-btn, .life-tile, .ast { transition: background-color .15s var(--ease), color .15s var(--ease), transform .15s var(--ease); }
+.seg-btn:active, .life-tile:active { transform: scale(.97); }
+.seg-btn:not([aria-selected="true"]):active { background: var(--lime-50); color: var(--navy-900); }
+.lang-btn:not([aria-pressed="true"]):active { background: var(--lime-100); color: var(--navy-900); }
+.icon-btn:active { background: var(--navy-50); transform: scale(.94); }
+.ast:active { background: var(--lime-200); transform: scale(.92); }
+.text-link:active, .more summary:active { opacity: .65; }
+.faq-list summary:active, .routes summary:active, .footer-group summary:active, .drawer-nav a:active, .footer-group a:active { background: var(--lime-50); }
+.desktop-nav a:active { background: var(--lime-100); }
 
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {

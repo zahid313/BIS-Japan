@@ -47,7 +47,23 @@ The build is solid. It survived a stress test with much longer text, every contr
 - **Images:** the whole page with every lazy image loaded transfers **288 KB**; gallery thumbnails (480 w at 164 px × 2) are right-sized.
 - **Performance on gzip hosting:** HTML 23 KB, CSS 14 KB, JS 6 KB transferred; **Lighthouse mobile 90–91** (a simulated GitHub Pages server: gzip + 10-minute cache). On my plain test server it is 86 because nothing is compressed.
 
-## Recommended order
+## Fix status (applied on `main`, committed locally, **not pushed**)
+
+| # | Result |
+|---|---|
+| **1** | **Share preview + icons.** Added Open Graph + Twitter tags (`og:type/site_name/locale/url/title/description/image + size + alt`, `twitter:card=summary_large_image`) and a generated **1200×630 `images/og-image.jpg`** (crest, headline, photo; 120 KB — I checked the render). Added **`apple-touch-icon.png` (180 px)**, `favicon.ico` (32 + 48 px), `favicon-32.png`, `favicon-48.png`, wired with `<link rel="icon">` / `apple-touch-icon`. `canonical` and `School` JSON-LD (real address / phone / founding year from the site) are written but kept **in a launch-checklist comment** so the noindex prototype isn't indexed pointing at the live domain. *Notes:* the tags use absolute URLs on `https://bisjapan.org/` (platforms require absolute URLs) — they'll only resolve once this page is served from that domain; the OG image currently uses the **placeholder stock hero photo** and must be re-generated from the real photo. Still missing for launch: `robots.txt`, `sitemap.xml`, `404.html`, web manifest. |
+| **2** | **One voice for money, grades, the booking action.** **Money:** Japanese pages now write **37,000円 / 0〜17,000円 / −37,000円** everywhere (calculator, fee cards, ranges, dropdowns, the 3.7万円/1.7万円 forms are gone, no ¥ in Japanese text); English keeps **¥37,000**; the calculator formats by language. **Grades:** Nursery（年少）・LKG（年中）・UKG（年長）, Grade 1〜5（小1〜小5）, Grade 6〜7（小6〜中1）, in the fee cards, photo tags, form and dropdown (*please confirm the 小6〜中1 mapping with the school*). **Booking:** short **「見学予約」** (header, bottom bar), long **「無料体験・見学を予約」** (hero, menu, footer), form button **「この内容で予約する」**, divider 「またはフォームで予約」, success 「ご予約のリクエストを受け付けました！」, 「別の日程を予約する」 (English equivalents aligned). |
+| **3** | **One label per destination, same in header / menu / footer:** 学校の特長 · プログラム · 授業料 · 講師・スタッフ · アクセス · よくある質問; and **スクールバス** replaces 送迎バス everywhere. |
+| **4** | Hero `srcset` now has an **840 w** file (40 KB): a 375 px phone at 2× downloads 40 KB instead of 68 KB. First-view image transfer 123 → **94 KB**. |
+| **5** | **Tap feedback:** `-webkit-tap-highlight-color: transparent`, `touch-action: manipulation`, and pressed states for stage tabs, language buttons, menu button, photo tiles, ※, text links, FAQ / route / footer rows and menu links. |
+
+**Also tidied while applying #2:** the fee-card grade text now wraps cleanly (grade names on their own lines, the age on a separate line, "無償化で実質 / 0〜17,000円" never splits mid-number), and the one stray Japanese "〜" in the English fee row is translated. Dropdown options show the **amount first** ("−37,000円　幼保無償化") so a narrow phone cuts the label, never the amount.
+
+**Verified:** no overflow or clipped text at 320 / 375 / 1024 / 1440 px (JA) and 320 px (EN); English mode has no Japanese left except the language names and decorative icon glyphs; Lighthouse on gzip hosting **Performance 90–91, Accessibility 100, Best Practices 100**, CLS 0.
+
+**Not done (still open from this round):** #6 no-JS fallback, #7 English suggestion bar, #8 tracking hooks, #9 inner pages in v2, #10 font timing on the real URL.
+
+## Recommended order (original)
 
 1. **Now (S):** #1 share preview + icons, #2 style guide applied (copy + labels), #4 hero 840 w, #5 tap feedback.
 2. **Next (M):** #3/#8 consistent labels + tracking hooks, #6 no-JS fallback, #7 language bar.
