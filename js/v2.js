@@ -17,6 +17,7 @@
 
   const LANG_KEY = 'bisjapan_lang';          // shared with the existing inner pages
   let lang = 'ja';
+  let onLangChanged = () => {};              // set by the header code below: language changes the font stack, so widths change
 
   /* ------------------------------------------------------------------ 1 · i18n */
   const ATTR_PAIRS = [['alt', 'data-en-alt'], ['aria-label', 'data-en-aria-label'], ['placeholder', 'data-en-placeholder']];
@@ -77,6 +78,7 @@
       history.replaceState({}, '', url);
     } catch (e) { /* ignore */ }
     calc();            // keep the calculator labels/values coherent
+    onLangChanged();
   }
 
   document.addEventListener('click', (e) => {
@@ -354,10 +356,30 @@
   /* ------------------------------------------------------------------ header height → CSS variable */
   // With large text the header wraps to two rows; sticky tabs and anchor offsets must follow its real height.
   const siteHeader = $('.site-header');
-  if (siteHeader && 'ResizeObserver' in window) {
-    const sync = () => root.style.setProperty('--header-live', `${siteHeader.getBoundingClientRect().height}px`);
-    new ResizeObserver(sync).observe(siteHeader);
-    sync();
+  if (siteHeader) {
+    const brandEl = $('.brand', siteHeader);
+    const actionsEl = $('.header-actions', siteHeader);
+    // Keep the header on one row when text is large: if the controls wrap below the brand, drop the wordmark
+    // text and keep the crest. The wordmark is always re-measured first, so the decision is stable.
+    const fitHeader = () => {
+      siteHeader.classList.remove('brand-compact');
+      const wrapped = actionsEl.offsetTop > brandEl.offsetTop + brandEl.offsetHeight / 2;
+      if (wrapped) siteHeader.classList.add('brand-compact');
+    };
+    const syncHeader = () => {
+      fitHeader();
+      root.style.setProperty('--header-live', `${siteHeader.getBoundingClientRect().height}px`);
+    };
+    if ('ResizeObserver' in window) new ResizeObserver(syncHeader).observe(siteHeader);
+    addEventListener('resize', syncHeader);
+    addEventListener('load', syncHeader);
+    if (document.fonts) {
+      if (document.fonts.ready) document.fonts.ready.then(syncHeader);
+      if (document.fonts.addEventListener) document.fonts.addEventListener('loadingdone', syncHeader);   // the web font arrives late: re-measure
+    }
+    onLangChanged = syncHeader;
+    window.__syncHeader = syncHeader;   // handy for testing text-size changes without a resize event
+    syncHeader();
   }
 
   /* ------------------------------------------------------------------ boot */

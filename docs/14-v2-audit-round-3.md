@@ -66,7 +66,22 @@ Phones with a larger system font (Android "font size", iOS Larger Text, browser 
 - **Form flow:** empty submit → three errors, focus on the first field; bad phone ("abc") rejected; errors clear as fields are fixed; valid submit → success and focus on it; "別のお申込み" restores and clears the form. `autocomplete="name"` and `autocomplete="tel"`, `inputmode="tel"` are set.
 - **Reflow at 320 px** in English and Japanese, and 768 / 1024 / 1440 / 1920 px (previous rounds) remain clean.
 
-## Recommended order
+## Fix status (applied on branch `fix/v2-audit-round-3`; not merged)
+
+| # | Result |
+|---|---|
+| 1 | **Landscape / short screens:** a `max-height: 520px` rule gives a 52 px header (40 px crest), non-sticky stage tabs, a two-column hero (text left, photo right) and a slimmer bottom bar. Verified at 812×375, 667×375 and 932×430: the headline starts at y≈67 and **both hero buttons are above the fold** (812×375: buttons end at 301 / 359 px); no overflow. |
+| 2 | **Hero height:** `height: 300px; height: clamp(200px, calc(100svh - 445px), 380px)` — the plain line is the fallback for iOS < 15.4. Both buttons now end above the fold at **375×667 (639 px)**, **360×640 in English (638 px)**; at 375×812 the photo is 367 px and the chips peek in. |
+| 3 | **Forced-colors:** `@media (forced-colors: active)` adds borders to buttons/cards/fields and gives the selected tab / language button / dot a `Highlight` fill. *Not testable in this browser pane — please check once in Windows high-contrast mode.* |
+| 4 | Form success box is `role="status"` with `aria-labelledby` its heading. |
+| 5 | `<main id="main" tabindex="-1">` (no focus ring drawn on it). |
+| 6 | `lang="en"` on the English names, "Cambridge", "Nursery / LKG / UKG", "Lower Secondary", "Pre-IGCSE / IGCSE", "A-Level". The "Aa / 123 / Fr / IG / Ar" icon tiles were already `aria-hidden`. |
+| 7 | All 6 new-tab links (LINE ×5, Maps) carry a visually hidden "(新しいタブで開きます)" / "(opens in a new tab)", translated with the page. The footer LINE link was restructured so the hint survives the English swap. |
+| 8 | **Compact header:** if the controls wrap below the brand (large text), the wordmark text is dropped and the crest stays — verified one row of 64 px from 100% to 175% text, 65 px at 200%, no overflow, `--header-live` follows. The measurement re-runs on resize, after the web font arrives and after a language change (a first version measured too early and hid the wordmark wrongly at 320 px and 1024 px; fixed by re-measuring, tighter nav links at 900–1199 px, and a little extra room under 360 px). |
+
+**Measured after the fixes:** no horizontal overflow at 320, 390, 768, 1024, 1920 px (JA) and 320/375 (EN); no text under 12 px; Lighthouse mobile **Performance 86, Accessibility 100, Best Practices 100** (two runs); CLS 0. Cache-busters are at `?v=10`.
+
+## Recommended order (original)
 
 1. **Now (S):** #2 hero height + `svh` fallback, #4 `role="status"`, #5 `tabindex="-1"`.
 2. **Next (M):** #1 landscape/short-screen layout, #3 forced-colors, #6 `lang` attributes, #7 new-tab hints.
